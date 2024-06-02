@@ -1,0 +1,255 @@
+.maiN{
+    background-color:rgb(252, 252, 252) ;
+  
+}
+
+.containerClinics{
+    margin-top: 4rem;
+    margin-left: 4rem;
+    margin-bottom: 6rem;
+    margin-right: 4rem;
+    font-family: "outfit";
+    
+   
+}
+.containerClinics h3{
+font-family: "Sriracha";
+font-size: 25px;
+margin-bottom: 2rem;
+}
+.containerClinics h4{ 
+ margin-top: 1.5rem;
+ font-size: 26px;
+ margin-bottom: 1rem;
+font-family: "Sriracha" ;
+}
+
+.containerClinics p{ 
+  margin-top: 1rem;
+  font-size: 18px;
+  margin-bottom: 1rem;
+ font-family: "outfit" ;
+ font-style: italic;
+ font-weight: 300;
+ }
+ 
+ 
+
+.Cards{
+  display: flex;
+ 
+}
+.card1  {
+    width: 390px;
+    height: 210px;
+    padding: 10px;
+    margin-right: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    font-size: 19px;
+    font-family:  "Atkinson Hyperlegible" ;
+    box-shadow:10px 10px 12px rgba(168, 168, 168, 0.08),
+    4px 4px 8px rgba(101, 103, 104, 0.527); 
+  }
+  .card1:hover {
+    border-color: #008bf8;
+  }
+  .first .icon{
+    display: inline-block;
+   color: var(--main-color);
+   font-size: 23px;
+  }
+  .first .serv{
+    display: inline-block;
+    padding-left: 5px;
+  }
+  .seco .icon {
+    display: inline-block;
+    color: var(--main-color);
+    font-size: 23px;
+  }
+  .seco .loc {
+    display: inline-block;
+    padding-left: 5px;
+  }
+  .third .icon{
+    display: inline-block;
+    color: var(--main-color);
+    font-size: 23px;
+  }
+  .third .date {
+    display: inline-block;
+    padding-left: 5px;
+  }
+  .name {
+    
+    padding-top: 0.4rem;
+    align-items: center;
+    padding-bottom: 0.5rem;
+  }
+  .serv{
+    display: block;
+    padding-bottom: 0.5rem;
+  }
+  .loc{
+    padding-bottom: 0.5rem;
+  }
+  .date {
+    
+  }
+ 
+  .card2 {
+    width: 390px;
+    height: 210px;
+    padding: 10px;
+    margin-right: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    font-size: 19px;
+   font-family:  "Atkinson Hyperlegible" ;
+   box-shadow:10px 10px 12px rgba(168, 168, 168, 0.08),
+   4px 4px 8px rgba(101, 103, 104, 0.527); 
+  }
+  .first2 .icon{
+    display: inline-block;
+   color: var(--main-color);
+   font-size: 23px;
+  }
+ .first2 .serv2 {
+  display: inline-block;
+    padding-left: 5px;
+ }
+ .seco2 .icon {
+  display: inline-block;
+  color: var(--main-color);
+  font-size: 23px;
+}
+.seco2 .loc2{
+  display: inline-block;
+  padding-left: 5px;
+}
+.third2 .icon{
+  display: inline-block;
+  color: var(--main-color);
+  font-size: 23px;
+}
+.third2 .date2 {
+  display: inline-block;
+  padding-left: 5px;
+}
+
+  .name2 {
+    padding-top: 0.4rem;
+    align-items: center;
+    padding-bottom: 0.4rem;
+
+  }
+  .serv2{
+    padding-bottom: 0.4rem;
+  }
+  .loc2{
+    padding-bottom: 0.4rem;
+  }
+  .date2 {
+    
+  }
+  .card3 {
+    width: 390px;
+    height: 210px;
+    display: block;
+    padding: 10px;
+    margin-right: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    font-size: 19px;
+    font-family:  "Atkinson Hyperlegible" ;
+    box-shadow:10px 10px 12px rgba(168, 168, 168, 0.08),
+    4px 4px 8px rgba(101, 103, 104, 0.527);  
+  }
+
+  .first3 .icon{
+    display: inline-block;
+   color: var(--main-color);
+   font-size: 23px;
+  }
+  .first3 .serv3{
+    display: inline-block;
+    padding-left: 5px;
+  }
+  .seco3 .icon {
+    display: inline-block;
+    color: var(--main-color);
+    font-size: 23px;
+  }
+  .seco3 .loc3 {
+    display: inline-block;
+    padding-left: 5px;
+  }
+  .third3 .icon{
+    display: inline-block;
+    color: var(--main-color);
+    font-size: 23px;
+  }
+  .third3 .date3 {
+    display: inline-block;
+    padding-left: 5px;
+  }
+  .name3 {
+    padding-top: 0.4rem;
+    align-items: center;
+    padding-bottom: 0.4rem;
+  }
+  .serv3{
+    padding-bottom: 0.4rem;
+  }
+  .loc3{
+    padding-bottom: 0.4rem;
+  }
+
+  
+  .Button-container {
+   display: flex;
+    justify-content: flex-end; 
+    margin-top: 2rem ; 
+    margin-right: 2rem;
+   
+  } 
+  .cta { 
+  background-color: #ffffff;
+  color: #0f0f0f;
+  width: 150px;
+  height:45px;
+  border: 1px solid var(--main-color);
+  border-radius: 10px;
+  text-align:center;
+  transition: all 0.6s ease;
+  font-family: "Atkinson Hyperlegible" ;
+  font-size: 17px;
+  font-weight: 400;
+  font-style: italic;
+  }
+  .cta:hover {
+    background-color: #f2f4f5;
+  }
+  .cta ::before{
+    position: absolute;
+    bottom: 0;
+    transform: translateX(-50%);
+    background-color:rgb(67, 147, 167)  ;
+    height: 2px;
+    width: 0;
+    left: 50%; 
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
+  }
+  .cta :hover::before{
+    width: 100%;
+    visibility: visible; 
+  }
+  .cta svg {
+   
+    width: 20px;
+    height: 20px;
+    fill: rgb(19, 18, 18)  ;
+    margin-left: 7px; 
+  }

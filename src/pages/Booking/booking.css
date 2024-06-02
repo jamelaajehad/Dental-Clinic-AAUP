@@ -1,0 +1,243 @@
+.mainCon{
+    background-color:rgb(253, 253, 253) ;
+}
+
+.BookingContainer {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 10rem;
+    border-radius: 5px;
+  
+}
+
+.BookingContainer h4{
+    margin-top:5rem;
+    font-family: "Sriracha" ;
+    font-size: 30px;
+    margin-left: 2rem;
+    margin-bottom: 1.2rem;
+  }
+  .BookingContainer p.two{
+    margin-top: 1rem;
+    font-family: "outfit";
+    font-weight: 400;
+    font-size: 21px;
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  .booking1 {
+    margin-top: 1rem;
+    border: 1px solid rgba(69, 82, 88, 0.445) ;
+    border-radius: 10px;
+    width: 762px;
+    height:520px ;
+    box-shadow: 0px 0px 15px 0px rgba(24, 24, 24, 0.1);
+    background-color: rgb(252, 252, 252);
+  }
+  .booking1 h5{
+   margin-top:2rem;
+   margin-left: 2rem;
+   font-family:"Sriracha" ;
+   margin-bottom: 3rem;
+   font-size: 27px;
+  }
+
+  .dental{
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+  }
+  .booking2{
+    margin-top: 0.1rem;
+    display: flex;
+    padding-left: 3rem;
+    flex-direction: row;
+  }
+  .dayPickerSection p.day{
+    font-family:"Sriracha" ;
+    font-size: 19px;
+    margin-left: 2rem;
+  }
+ 
+  .timeClinics {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 4rem;
+    margin-right: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .selectName {
+    margin-top: 1.3rem;
+    font-size: 19px;
+    font-family: "Sriracha";
+  }
+  .select {
+    width: 200px;
+    cursor: pointer;
+    position: relative;
+    transition: 300ms;
+    color: rgb(0, 0, 0);
+    overflow: hidden;
+    font-family:  "Atkinson Hyperlegible" ;
+    
+  }
+  
+  .selected {
+    background-color:  rgb(253, 253, 253) ;
+    height: 40px;
+    padding: 5px;
+    margin-bottom: 3px;
+    border-radius: 5px;
+    position: relative;
+    z-index: 100000;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1.5px solid var(--main-color); 
+  }
+  
+  .arrow {
+    position: relative;
+    right: 0px;
+    height: 10px;
+    transform: rotate(-90deg);
+    width: 25px;
+    fill: var(--main-color);   
+    z-index: 100000;
+    transition: 300ms;
+  }
+  
+  .options {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgb(252, 252, 252) ;
+    position: relative;
+    top: -100px;
+    opacity: 0; 
+    transition: 300ms;
+  }
+  
+  .select:hover > .options {
+    opacity: 1;
+    top: 0;
+  }
+  
+  .select:hover > .selected .arrow {
+    transform: rotate(0deg);
+  }
+  
+  .option {
+    width : 200px;
+    border-radius: 5px;
+    padding: 5px;
+    transition: 300ms;
+    background-color: #fcfcfc;
+    width: 150px;
+    font-size: 17px;
+  }
+  .option:hover {
+    background-color: var(--sec-color);
+    color: #fcfcfc ;
+  }
+  
+  .options input[type="radio"] {
+    display: none;
+  }
+  
+  .options label {
+    display: inline-block;
+  }
+  .options label::before {
+    content: attr(data-txt);
+  }
+  
+  .options input[type="radio"]:checked + label {
+    display: none;
+  }
+  
+  .options input[type="radio"]#all:checked + label {
+    display: none;
+  }
+  
+  .select:has(.options input[type="radio"]#all:checked) .selected::before {
+    content: attr(data-default);
+  }
+  .select:has(.options input[type="radio"]#option-1:checked) .selected::before {
+    content: attr(data-one);
+  }
+  .select:has(.options input[type="radio"]#option-2:checked) .selected::before {
+    content: attr(data-two);
+  }
+  .select:has(.options input[type="radio"]#option-3:checked) .selected::before {
+    content: attr(data-three);
+  }
+  
+  
+  
+  .calendar {
+    display: flex;
+  }
+  .time-slots {
+  
+  }
+
+  .time-slots p{
+  font-family:"Sriracha" ;
+  font-size: 19px;
+  margin-top: 2px;
+  }
+
+
+  .time-slots button {
+  border: 1px solid rgb(154, 173, 177) ;
+   font-family: "outfit";
+   width: 115px;
+   height: 47px;
+   font-size:15px;
+   border-radius: 20px;
+   margin-right: 10px;
+   margin-bottom: 10px;
+   padding: 8px 12px;
+   background-color: #ffffff;
+   /*background-color: rgb(235, 235, 235);*/
+   color: rgb(0, 0, 0);
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+   box-shadow: 5px 5px 10px 0px rgba(141, 140, 140, 0.1);
+  }
+  .time-slots button:hover {
+    background-color: var(--main-color);
+    color: white ;
+  }
+
+  .dayPickerContainer {
+    border:1px solid rgb(230, 230, 230) ;
+    margin-left: 1rem;
+    margin-top: 0.4rem;
+    margin-bottom: 9rem;
+    border-radius: 21px;
+    background-color: rgb(255, 255, 255)  ;
+    box-shadow:0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+    font-family: "outfit";
+  }
+  .booking1 h5 .icon,
+  .booking2 p .icon {
+   margin-right: 11px; 
+   color : rgb(65, 65, 65);
+   
+}
+.BookingContainer h4 .icon{
+  color: var(--main-color);
+  margin-right: 5px;
+  margin-bottom: 0.5rem;
+}
+.map{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  
+}

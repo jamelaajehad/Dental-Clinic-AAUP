@@ -1,0 +1,98 @@
+.forget-comp-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-image:  url('../../Asset/app-images/interface5.jpg');
+    width: 100%;
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid rgba(80, 78, 78, 0.533);
+    border-radius: 20px;
+    padding: 30px 40px;
+    backdrop-filter: blur(30px);
+}
+
+.forget-comp-container form {
+    width: 420px;
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid rgba(80, 78, 78, 0.533);
+    border-radius: 20px;
+    padding: 30px 40px;
+    backdrop-filter: blur(30px);
+}
+
+.forget-comp-container h1 {
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.forget-comp-container label {
+    display: block;
+    text-align: left;
+    margin-bottom: 6px;
+    accent-color: rgb(228, 223, 223);
+}
+
+.forget-comp-container input[type="email"] {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    outline:none;
+    border: 2px solid rgba(158, 153, 153, 0.897);
+    border-radius: 32px;
+    font-size: 16px;
+    color: rgb(255, 246, 246);
+    padding: 20px 45px 20px 20px;
+    box-shadow: none;
+}
+
+.forget-comp-container input::placeholder {
+    color: rgb(255, 255, 255);
+}
+
+.forget-comp-container button {
+    width: 100%;
+    height: 50px;
+    background-color: #43978d;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgb(46, 45, 45);
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    font-weight: 700;
+    transition: 0.7s ease;
+    margin-top: 10px;
+}
+
+.forget-comp-container button:hover {
+    transform: scale(1.05);
+}
+
+.forget-comp-container .login-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.forget-comp-container .login-link p {
+    font-size: 14.5px;
+}
+
+.forget-comp-container .login-link a {
+    color: #adafaf;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forget-comp-container .login-link a:hover {
+    text-decoration: underline !important;
+}

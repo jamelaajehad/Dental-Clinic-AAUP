@@ -1,0 +1,60 @@
+/*.services-container {
+  padding: 20px;
+}
+
+.service {
+  margin-bottom: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center; 
+}
+
+.service h3 {
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 1.2em; 
+}
+
+.service p {
+  color: #666;
+  font-size: 0.9em; 
+  display: none; 
+}
+
+.service:hover p {
+  display: block; 
+}
+
+.service:hover {
+  border-color: rgb(58, 57, 57);
+}
+
+.service .icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.service .read-more {
+  width: 20%;
+  height: 50px; 
+  background-color: rgb(72, 120, 133); 
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgb(46, 45, 45);
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+  font-weight: 700;
+  transition: 0.7s ease;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.service .read-more:hover {
+  text-decoration: underline;
+}*/

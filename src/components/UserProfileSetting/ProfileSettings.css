@@ -1,0 +1,73 @@
+.profile-settings {
+    /*background-color: #fff; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 6px; 
+    border : 1px solid rgb(177, 180, 182) ;*/
+    padding: 25px;
+    width: 600px;
+    margin: 5px auto;
+    margin-left: 1.5rem;
+  } 
+  .profile-settings h3 {
+    font-size: 28px; 
+    margin-bottom: 25px; 
+    font-weight: 400;
+    font-family: "Montserrat", sans-serif ;
+  }
+  .profile-settings form {
+    display: flex;
+    flex-direction: column; 
+  }
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .form-row label {
+    font-family: "Montserrat", sans-serif ;
+    font-weight: 450;
+    font-style: italic;
+    font-size: 16px;
+    margin-bottom: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .form-row label:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  .profile-settings input {
+    padding:8px; 
+    border: 1px solid #5e85a0; 
+    border-radius: 7px; 
+    margin-bottom: 7px; 
+    font-size: 16px; 
+    margin-left: 5px;
+  
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    
+  }
+
+  .profile-settings button {
+    padding: 10px 15px; 
+    border: none; 
+    border-radius: 16px; 
+    background-color: var(--main-color); 
+    color: white; 
+    font-size: 16px; 
+    cursor: pointer; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+    font-family: "outfit";
+    width: 400px
+  }
+  
+  .profile-settings button:hover {
+    background-color:var(--sec-color) 
+  }
+  

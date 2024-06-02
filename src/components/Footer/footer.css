@@ -1,0 +1,97 @@
+.footer-container2{ 
+    background-color:rgb(72, 120, 133)   ; 
+    flex-direction: row !important;
+    display: flex; 
+   
+    
+}
+.Title p{
+    margin-top: 6rem; 
+    font-family: "Della Respira", serif; 
+    font-weight: 300;
+    font-style: normal;
+    margin-left: 3rem;
+    color: rgb(253, 253, 253) ;
+    font-size:24px;
+}
+
+
+.footer {
+ margin-top: 4rem;
+ margin-left:7rem;
+ border-radius: 10px;
+ font-family:"outfit", sans-serif;
+ font-weight: 400;
+ font-style: normal; ; 
+ font-size: 19px;
+ margin-bottom: 4rem;
+}
+
+
+.location .icon {
+ color: rgb(253, 253, 253);
+   display: inline-block;
+   margin-right: .3rem;
+   margin-bottom:7px;
+}
+.location .p{
+    display: inline-block;
+    color: rgb(253, 253, 253);
+    margin-bottom: 7px;
+}
+.email .icon2 {
+    display: inline-block;
+    color: rgb(253, 253, 253);
+    margin-right: .3rem;
+    margin-bottom:7px;
+}
+.email .p2{
+    display: inline-block;
+    color: rgb(253, 253, 253);
+    margin-bottom: 7px;
+}
+
+ .phone .icon3{
+    display: inline-block;
+    color: rgb(253, 253, 253);  
+    margin-right: .3rem;
+ }
+ .phone .p3{
+    display: inline-block;
+    color: rgb(253, 253, 253); 
+ }
+
+ .footer2 {
+    margin-left:7rem;  
+    font-family:"outfit", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-top:4rem;
+    font-size:21px;
+   }
+ .link {
+    flex-direction: column;
+    display: block;
+    text-decoration: none;
+    color: rgb(252, 252, 252);
+ }
+ .link a:hover{
+    text-decoration: underline;
+ }
+ .footer-below{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 0.2rem;
+
+ }
+ footer-copyright{
+    flex-direction: row;
+    display: flex;
+ }
+ 
+ 
+.divider {
+    color: #fffefe; 
+    
+}

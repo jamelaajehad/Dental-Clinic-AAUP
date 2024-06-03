@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import './DoctorDashboard.css';
-import  mybooking from "../../Asset/app-images/mybooking.png";
+import React, { useState } from "react";
+import "./DoctorDashboard.css";
+import mybooking from "../../Asset/app-images/mybooking.png";
 import setting from "../../Asset/app-images/setting.png";
 import logout from "../../Asset/app-images/logout.png";
 import manage from "../../Asset/app-images/manage.png";
 
 const DoctorDashboard = () => {
-  const [selectedAction, setSelectedAction] = useState('appointments');
+  const [selectedAction, setSelectedAction] = useState("appointments");
   const [profilePicture, setProfilePicture] = useState(null);
-  const [doctorName, setDoctorName] = useState('Dr. [Doctor Name]');
-  const [doctorEmail, setDoctorEmail] = useState('');
-  const [doctorPassword, setDoctorPassword] = useState('');
-  const [doctorPhone, setDoctorPhone] = useState('');
+  const [doctorName, setDoctorName] = useState("Dr. [Doctor Name]");
+  const [doctorEmail, setDoctorEmail] = useState("");
+  const [doctorPassword, setDoctorPassword] = useState("");
+  const [doctorPhone, setDoctorPhone] = useState("");
 
   const handleActionClick = (action) => {
     setSelectedAction(action);
@@ -36,12 +36,12 @@ const DoctorDashboard = () => {
   };
 
   const handleDeleteAccount = () => {
-    console.log('Account deleted');
+    console.log("Account deleted");
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    window.location.href = '/LoginForm';
+    localStorage.removeItem("token");
+    window.location.href = "/LoginForm";
   };
 
   return (
@@ -51,29 +51,45 @@ const DoctorDashboard = () => {
         <div className="doctor-container">
           <div className="Docitems">
             <ul className="ulitems2">
-              <li onClick={() => handleActionClick('appointments')}>
-              <img src={mybooking} alt="#" style={{ width: '30px', height: '30px' }} />
+              <li onClick={() => handleActionClick("appointments")}>
+                <img
+                  src={mybooking}
+                  alt="#"
+                  style={{ width: "30px", height: "30px" }}
+                />
                 Appointments
               </li>
-              <li onClick={() => handleActionClick('patients')}>
-              <img src={manage} alt="#" style={{ width: '30px', height: '30px' }} />
+              <li onClick={() => handleActionClick("patients")}>
+                <img
+                  src={manage}
+                  alt="#"
+                  style={{ width: "30px", height: "30px" }}
+                />
                 Manage Patients
               </li>
-              <li onClick={() => handleActionClick('Profile settings')}>
-              <img src={setting} alt="#" style={{ width: '30px', height: '30px' }} />
-               Profile Settings
+              <li onClick={() => handleActionClick("Profile settings")}>
+                <img
+                  src={setting}
+                  alt="#"
+                  style={{ width: "30px", height: "30px" }}
+                />
+                Profile Settings
               </li>
               <li onClick={handleLogout}>
-              <img src={logout} alt="#" style={{ width: '30px', height: '30px' }} />
+                <img
+                  src={logout}
+                  alt="#"
+                  style={{ width: "30px", height: "30px" }}
+                />
                 Logout
               </li>
-              <li onClick={handleDeleteAccount} style={{ color: 'red' }}>
+              <li onClick={handleDeleteAccount} style={{ color: "red" }}>
                 Delete Account
               </li>
             </ul>
           </div>
           <div className="section-content2">
-            {selectedAction === 'appointments' && (
+            {selectedAction === "appointments" && (
               <div className="table-container">
                 <h3>Appointments</h3>
                 <table className="appointments-table">
@@ -95,7 +111,7 @@ const DoctorDashboard = () => {
                 </table>
               </div>
             )}
-            {selectedAction === 'patients' && (
+            {selectedAction === "patients" && (
               <div className="table-container">
                 <h3>Manage Patients</h3>
                 <table className="patients-table">
@@ -117,34 +133,57 @@ const DoctorDashboard = () => {
                         <button className="button">Delete</button>
                       </td>
                     </tr>
-                    
                   </tbody>
                 </table>
               </div>
             )}
-            {selectedAction === 'Profile settings' && (
+            {selectedAction === "Profile settings" && (
               <div className="form-container">
                 <h3> Profile Settings</h3>
                 <form onSubmit={handleSaveSettings}>
                   <label>
                     Change Name:
-                    <input type="text" name="doctorName" defaultValue={doctorName} required />
+                    <input
+                      type="text"
+                      name="doctorName"
+                      defaultValue={doctorName}
+                      required
+                    />
                   </label>
                   <label>
                     Change Email:
-                    <input type="email" name="doctorEmail" defaultValue={doctorEmail} required />
+                    <input
+                      type="email"
+                      name="doctorEmail"
+                      defaultValue={doctorEmail}
+                      required
+                    />
                   </label>
                   <label>
                     Change Password:
-                    <input type="password" name="doctorPassword" defaultValue={doctorPassword} required />
+                    <input
+                      type="password"
+                      name="doctorPassword"
+                      defaultValue={doctorPassword}
+                      required
+                    />
                   </label>
                   <label>
                     Change Phone:
-                    <input type="tel" name="doctorPhone" defaultValue={doctorPhone} required />
+                    <input
+                      type="tel"
+                      name="doctorPhone"
+                      defaultValue={doctorPhone}
+                      required
+                    />
                   </label>
                   <label>
                     Change Profile Picture:
-                    <input type="file" name="profilePicture" onChange={handleProfilePictureChange} />
+                    <input
+                      type="file"
+                      name="profilePicture"
+                      onChange={handleProfilePictureChange}
+                    />
                   </label>
                   <label>
                     Notification Preferences:
@@ -154,7 +193,9 @@ const DoctorDashboard = () => {
                       <option value="none">None</option>
                     </select>
                   </label>
-                  <button type="submit" className="savebutton">Save</button>
+                  <button type="submit" className="savebutton">
+                    Save
+                  </button>
                 </form>
               </div>
             )}
@@ -163,6 +204,6 @@ const DoctorDashboard = () => {
       </div>
     </div>
   );
-}
+};
 
 export default DoctorDashboard;

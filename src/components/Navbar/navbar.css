@@ -51,7 +51,7 @@ overflow: hidden;
   font-size:17.5px;
   font-family:"Sriracha" ;
   transition:  0.3s ease  ;
-  border: 1.9px solid var(--main-color) ;
+  border: 1.9px solid rgb(67, 147, 167);
   width: 90px;
   height: 40px;
   background-color: rgb(255, 255, 255) ;
@@ -80,7 +80,7 @@ overflow: hidden;
     top: 180%;
     width: 160%;
     height: 190%;
-    background-color:var(--main-color);
+    background-color:rgb(67, 147, 167)  ;
     border-radius: 50%;
     display: block;
     transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
@@ -89,7 +89,7 @@ overflow: hidden;
   
   .login:hover {
     color: #ffffff;
-    border: 1px solid var(--main-color);
+    border: 1px solid rgb(67, 147, 167);
   }
   
   .login:hover:before {

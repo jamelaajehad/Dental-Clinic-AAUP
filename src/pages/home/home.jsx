@@ -4,7 +4,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import "./home.css";
 
-// import {firestore} from "../../firebase" ;
+import {firestore} from "../../firebase.js" ;
 import { addDoc, collection } from "@firebase/firestore";
 
 import { useNavigate } from "react-router-dom";
@@ -15,7 +15,7 @@ import staff from "../../Asset/app-images/staff.png";
 import Footer from "../../components/Footer/footer";
 
 const Home = () => {
-  /*const messageRef= useRef();
+  const messageRef= useRef();
   const ref = collection(firestore, "message");
   const handleSave = async(e) => {
     e.preventDefault();
@@ -29,7 +29,7 @@ const Home = () => {
     catch(e){
       console.log(e);
     }
-  };*/
+  };
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -69,6 +69,11 @@ const Home = () => {
   };
   return (
     <div className="content">
+    <form onSubmit={handleSave}> 
+      <label> enter meassge</label>
+      <input type ="text" ref={messageRef} />
+      <button type="submit"> save</button>
+    </form>
       <div className="home-container">
         <section className="home">
           <div className="title">

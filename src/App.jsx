@@ -14,10 +14,11 @@ import UserProfile from "./pages/UserProfile/userprofile";
 import AdminPage from "./pages/AdminPage/AdminPage";
 import DoctorDashboard from "./pages/DoctorDashboard/DoctorDashboard";
 import Clinics from "./pages/Clinic/clinics";
+import { UserProvider } from "./contexts/UserContext";
 
 const App = () => {
   return (
-    <div>
+    <UserProvider>
       <Router>
         <Navbar />
         <Routes>
@@ -35,7 +36,7 @@ const App = () => {
           <Route path="/DoctorDashboard" element={<DoctorDashboard />} />
         </Routes>
       </Router>
-    </div>
+    </UserProvider>
   );
 };
 export default App;

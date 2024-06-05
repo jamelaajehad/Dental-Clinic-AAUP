@@ -1,58 +1,60 @@
-
 .content {
-  background-color:rgb(255, 255, 255) ;   
+  background-color: rgb(255, 255, 255);
 }
 
 
 .home-container {
-    font-family: "outfit", sans-serif;
-    scroll-behavior:smooth ;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position:center ;
-    background-attachment:fixed ; 
-    background-image:  url('../../Asset/app-images/inter1.jpg');
-    height: 100vh;
-    display :flex;
-    width: 100%;
+  font-family: "outfit", sans-serif;
+  scroll-behavior: smooth;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-image: url('../../Asset/app-images/inter1.jpg');
+  height: 100vh;
+  display: flex;
+  width: 100%;
 }
 
- .title {
-    margin-top: 18rem;
-    color: white; 
-    line-height:6rem ;
-    margin-left: 15rem;
-    font-family:"Sriracha" ;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+.title {
+  margin-top: 18rem;
+  color: white;
+  line-height: 6rem;
+  margin-left: 15rem;
+  font-family: "Sriracha";
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
- .title .btn {
-    color: rgba(15, 15, 15, 0.87) !important;
-    background-color: rgb(255, 255, 255);
-    border : 1px solid white;
-    width : 120px;
-    height: 50px;
-    font-size: 23px;
-    border-radius: 23px;
-    font-style: italic;
-    font-family: "outfit" ;
-    font-weight: 500;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.7s ease;
-    margin-top: 2rem;
-    border: 1px solid rgb(255, 255, 255) ;
-}   
+
+.title .btn {
+  color: rgba(15, 15, 15, 0.87) !important;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid white;
+  padding: 5px 20px;
+  /* width: 120px;
+  height: 50px; */
+  font-size: 23px;
+  border-radius: 23px;
+  font-style: italic;
+  font-family: "outfit";
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.7s ease;
+  margin-top: 2rem;
+  border: 1px solid rgb(255, 255, 255);
+}
+
 .title .btn:hover {
-    background-color: rgb(243, 248, 248) ;
-    transform: scale(1.1);
+  background-color: rgb(243, 248, 248);
+  transform: scale(1.1);
 }
 
-.sec-container{
-    flex-direction: row; 
-    display: flex; 
-    gap: 450px;
-    padding-top: 2rem;
+.sec-container {
+  flex-direction: row;
+  display: flex;
+  gap: 450px;
+  padding-top: 2rem;
 }
 
 .About {
@@ -60,260 +62,265 @@
   height: 400px;
 }
 
-.About p.mainAb{
-   font-family:  "Tajawal" ;
-   margin-top: 2rem;
-   font-size: 26px;
-   color: rgb(119, 117, 117);
-   margin-left: 5.5rem;
-   margin-bottom: 1px;
-   font-weight: 400;
-   font-style: italic;
+.About p.mainAb {
+  font-family: "Tajawal";
+  margin-top: 2rem;
+  font-size: 26px;
+  color: rgb(119, 117, 117);
+  margin-left: 5.5rem;
+  margin-bottom: 1px;
+  font-weight: 400;
+  font-style: italic;
 }
-.About p.about{
-  color: rgb(46, 44, 44); 
+
+.About p.about {
+  color: rgb(46, 44, 44);
   font-size: 37px;
   font-weight: 500;
   padding-left: 4.2rem;
-  font-family:  "Sriracha";
+  font-family: "Sriracha";
 }
-.About P.us{
-margin-top: 4px;
+
+.About P.us {
+  margin-top: 4px;
   padding-left: 4rem;
   font-size: 24px;
   font-family: "outfit", serif;
-  font-weight:250;
+  font-weight: 250;
   font-style: italic;
   line-height: 2rem;
-  
+
 }
+
 .img img {
-   margin-top: 2rem;
-  
-   border-radius: 5px;
-   margin-bottom: 2em;
+  margin-top: 2rem;
+
+  border-radius: 5px;
+  margin-bottom: 2em;
 }
-.third-container{
+
+.third-container {
   margin-top: 5rem;
   margin-bottom: 6rem;
   margin-left: 3.5rem;
   margin-right: 3.5rem;
 }
+
 .cards-container {
   margin-top: 3rem;
   display: flex;
   justify-content: space-around;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
 }
-  .cardSec {
-    border-radius: 8px;
-    padding: 16px;
-    margin: 16px;
-    text-align: center;
-    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
-    border: 1.5px solid rgb(149, 158, 160) ;
-    box-shadow: 2px 3px 3px #8ea2aa,
+
+.cardSec {
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+  text-align: center;
+  /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+  border: 1.5px solid rgb(149, 158, 160);
+  box-shadow: 2px 3px 3px #8ea2aa,
     2px 3px 3px #4f7580;
-    background-color: rgb(255, 255, 255);
-    width: 290px;
-    height: 300px;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    
-  }
-  .cardSec h4 {
-   margin-top:1rem;
-    color: #222121;
-    font-family: "outfit";
-    font-weight: 420;
-    font-size: 22px;
-    font-family: "PT Serif";
+  background-color: rgb(255, 255, 255);
+  width: 290px;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
-    /*font-family: "Atkinson Hyperlegible" ;*/
-  }
-  .description {
-    margin-top: 15px;
-    margin-bottom: 20px;
-    font-size: 22px;
-    color: #4e4e4e;
-    font-family: "tajawal";
-    font-style: italic;
-    width: 60%; 
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .cardSec p.cardp {
-    color: #5a5959;
-    font-family: "tajawal";
-    font-size: 18px;
-    font-style: italic;
-  }
-
-  .card-icon {
-    width: 70px; 
-    height: 70px;
-    margin: 5px 0;
-  }
-
-.fourth-container{
-    padding-top:3rem;
-    
 }
 
- h2 {
-    margin: 2rem;
-    justify-content: center;
-    align-items: center;
-    font-family: "Sriracha" ;
-    color: rgb(46, 44, 44) ; 
-    font-size: 39px;
-    font-weight: 500;
-    margin-bottom: .5em;
- }
+.cardSec h4 {
+  margin-top: 1rem;
+  color: #222121;
+  font-family: "outfit";
+  font-weight: 420;
+  font-size: 22px;
+  font-family: "PT Serif";
+
+  /*font-family: "Atkinson Hyperlegible" ;*/
+}
+
+.description {
+  margin-top: 15px;
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: #4e4e4e;
+  font-family: "tajawal";
+  font-style: italic;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cardSec p.cardp {
+  color: #5a5959;
+  font-family: "tajawal";
+  font-size: 18px;
+  font-style: italic;
+}
+
+.card-icon {
+  width: 70px;
+  height: 70px;
+  margin: 5px 0;
+}
+
+.fourth-container {
+  padding-top: 3rem;
+
+}
+
+h2 {
+  margin: 2rem;
+  justify-content: center;
+  align-items: center;
+  font-family: "Sriracha";
+  color: rgb(46, 44, 44);
+  font-size: 39px;
+  font-weight: 500;
+  margin-bottom: .5em;
+}
+
 p span {
   color: rgb(28, 28, 29);
   font-size: 20px;
   font-family: 'outfit';
   font-weight: 400;
   margin-left: 2rem;
-  
-    }
-  
- .cards {
-    display: flex;
-    flex-direction: row;
-    gap: 110px;
-    margin-left: 6rem;
-    margin-top: 3rem;
-    margin-right:4.5rem;
 
-  }
-  
-  .cards .red {
-    border-radius: 1px;
-    background-image: url( '../../Asset/app-images/pic.jpg');
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    
-  } 
-  
-  .cards .blue {
-   background-image: url('../../Asset/app-images/icon2.png') ;
-   border-radius: 3px;
-   background-position: center;
-    background-size: cover;
-    display: flex;
-  }
-  
-  .cards .green {
-    background-image: url('../../Asset/app-images/icon3.jpg');
-    border-radius: 3px;
-   background-position: center;
-    background-size: cover;
-    display: flex;
-  }
-  
-  .cards .card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    height: 200px;
-    width: 290px;
-    border-radius: 10px;
-    color: rgb(245, 245, 245);
-    cursor: pointer;
-    transition: 400ms;
-    font-family:"Sriracha" ;
-   border-color: #e1e2e2 ; 
-  } 
-  
-  .cards .card p.tip {
-    font-size: 1.2em;
-    font-weight: 550;
-    margin-top: .5em;
-   
-  }
-  
- 
-  
-  .cards .card:hover {
-    transform: scale(1.1, 1.1);
-  }
-  
-  .cards:hover > .card:not(:hover) {
-    filter: blur(10px);
-    transform: scale(0.9, 0.9);
-  }  
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  gap: 110px;
+  margin-left: 6rem;
+  margin-top: 3rem;
+  margin-right: 4.5rem;
+
+}
+
+.cards .red {
+  border-radius: 1px;
+  background-image: url('../../Asset/app-images/pic.jpg');
+  background-position: center;
+  background-size: cover;
+  display: flex;
+
+}
+
+.cards .blue {
+  background-image: url('../../Asset/app-images/icon2.png');
+  border-radius: 3px;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+}
+
+.cards .green {
+  background-image: url('../../Asset/app-images/icon3.jpg');
+  border-radius: 3px;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+}
+
+.cards .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 200px;
+  width: 290px;
+  border-radius: 10px;
+  color: rgb(245, 245, 245);
+  cursor: pointer;
+  transition: 400ms;
+  font-family: "Sriracha";
+  border-color: #e1e2e2;
+}
+
+.cards .card p.tip {
+  font-size: 1.2em;
+  font-weight: 550;
+  margin-top: .5em;
+
+}
+
+
+
+.cards .card:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.cards:hover>.card:not(:hover) {
+  filter: blur(10px);
+  transform: scale(0.9, 0.9);
+}
 
 
 
 
 .cards2 {
-    display: flex;
-    flex-direction: row;
-    gap: 130px;
-    margin-left: 16rem;
-    margin-top: 3rem;
-    margin-right: 7rem;
-    margin-bottom: 6rem;
-    
-  }
-    
-  .cards2 .red1 {
-    background-image: url('../../Asset/app-images/icon4.png');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-  }
-  
-  .cards2 .blue1 {
-    background-image: url('../../Asset/app-images/icon5.png');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-  }
-  
-  .cards2 .card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    height: 200px;
-    width: 290px;
-    border-radius: 10px;
-    color: rgb(226, 226, 226); ;
-    cursor: pointer;
-    transition: 400ms;
-    font-family: "Sriracha";
-    border-color: #cdcfcf;
-  }
-  .cards2 .card p.tip1 {
-    font-size: 1.3em;
-    font-weight: 550;
-    font-family: "Sriracha";
-    margin-top: 3.3em;
-    
-  }
+  display: flex;
+  flex-direction: row;
+  gap: 130px;
+  margin-left: 16rem;
+  margin-top: 3rem;
+  margin-right: 7rem;
+  margin-bottom: 6rem;
 
-  
-  
-  .cards2 .card:hover {
-    transform: scale(1.1, 1.1);
-  }
-  
-  .cards2:hover > .card:not(:hover) {
-    filter: blur(10px);
-    transform: scale(0.9, 0.9);
-  }  
+}
 
-  
-  
-  
-  
-   
+.cards2 .red1 {
+  background-image: url('../../Asset/app-images/icon4.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+}
+
+.cards2 .blue1 {
+  background-image: url('../../Asset/app-images/icon5.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+}
+
+.cards2 .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 200px;
+  width: 290px;
+  border-radius: 10px;
+  color: rgb(226, 226, 226);
+  ;
+  cursor: pointer;
+  transition: 400ms;
+  font-family: "Sriracha";
+  border-color: #cdcfcf;
+}
+
+.cards2 .card p.tip1 {
+  font-size: 1.3em;
+  font-weight: 550;
+  font-family: "Sriracha";
+  margin-top: 3.3em;
+
+}
+
+
+
+.cards2 .card:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.cards2:hover>.card:not(:hover) {
+  filter: blur(10px);
+  transform: scale(0.9, 0.9);
+}

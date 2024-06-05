@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import "./home.css";
@@ -11,22 +11,16 @@ import staff from "../../Asset/app-images/staff.png";
 import Footer from "../../components/Footer/footer";
 
 const Home = () => {
-  // const messageRef = useRef();
-  // const ref = collection(firestore, "message");
-  // const handleSave = async (e) => {
-  //   e.preventDefault();
-  //   console.log(messageRef.current.value);
-  //   let data = {
-  //     message: messageRef.current.value,
-  //   };
-  //   try {
-  //     addDoc(ref, data);
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // };
-
   const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    const userData = localStorage.getItem("user");
+    if (userData) {
+      setUser(JSON.parse(userData));
+    } else {
+      setUser(null);
+    }
+  }, []);
   useEffect(() => {
     Aos.init();
   }, []);
@@ -69,9 +63,15 @@ const Home = () => {
           <div className="title">
             <h1 align="left ">Welcome to the arab</h1>
             <h1 align="left ">American university Clinics</h1>
-            <button onClick={() => navigate("LoginForm")} className="btn">
-              Log In
-            </button>
+            {user ? (
+              <button onClick={() => navigate("LoginForm")} className="btn">
+                Book Initial Examination
+              </button>
+            ) : (
+              <button onClick={() => navigate("LoginForm")} className="btn">
+                Log In
+              </button>
+            )}
           </div>
         </section>
       </div>

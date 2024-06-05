@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css";
-import { FaUser, FaLock, FaEnvelope  } from "react-icons/fa";
+import { FaUser, FaLock, FaEnvelope } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
@@ -13,10 +13,19 @@ const LoginForm = () => {
 
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {2
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
+
+      // Store user info in local storage
+      localStorage.setItem("user", JSON.stringify(user));
+
       toast.success("Login successful!");
       setTimeout(() => {
         navigate("/");

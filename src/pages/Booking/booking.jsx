@@ -180,9 +180,9 @@ const Booking = () => {
     <h5 > Book an appointment : </h5>
      <div className="dental"> 
      <div className="booking2 ">
-     <div className="dayPickerSection1">
+     <div className="dayPickerSection">
       <p className="day"><FaCalendarAlt className="icon" /> Please pick a day</p>                         
-     <div className="dayPickerContainer">
+     <div className="dayPickerContainer1">
       <style> {css} </style>
        <DayPicker
         styles={{

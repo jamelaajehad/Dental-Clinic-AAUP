@@ -6,13 +6,14 @@ import LoginForm1 from "./pages/Login/Login";
 import Doctor from "./pages/doctors/doctor";
 import ForgotPassword from "./pages/ForgetPassword/forget-comp";
 import Contact from "./pages/Contact/contact";
-import DoctorDetails from "./pages/Clinics/ClinicsDetails";
+import DoctorDetails from "./pages/Doctordeatails/ClinicsDetails";
 import Services from "./pages/Services/Services";
 import Register from "./pages/Register/register";
 import Booking from "./pages/Booking/booking";
 import UserProfile from "./pages/UserProfile/userprofile";
 import AdminPage from "./pages/AdminPage/AdminPage";
 import DoctorDashboard from "./pages/DoctorDashboard/DoctorDashboard";
+import Clinics from "./pages/Clinic/clinics";
 
 const App = () => {
   return (
@@ -27,7 +28,7 @@ const App = () => {
           <Route path="/doctor" element={<Doctor />} />
           <Route path="/doctors/:doctorIndex" element={<DoctorDetails />} />
           <Route path="/forget-comp" element={<ForgotPassword />} />
-
+          <Route path="/clinics" element={<Clinics />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/user" element={<UserProfile />} />
           <Route path="/admin/:activepage" element={<AdminPage />} />

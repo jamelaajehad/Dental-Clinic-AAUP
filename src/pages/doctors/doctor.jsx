@@ -36,6 +36,9 @@ const Doctor = () => {
       };
     return (
       <div className="main border"> 
+      <div className="backgroundDoc"> 
+        <p> </p>
+        </div>
         <div className="doctors">
             <h2> Our Dentists: </h2>
             <p className="SecTitle">Explore and schedule with the ideal dentist for you, effortlessly.</p>

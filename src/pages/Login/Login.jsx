@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css";
-import { FaUser, FaLock } from "react-icons/fa";
+import { FaUser, FaLock, FaEnvelope  } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
@@ -13,7 +13,7 @@ const LoginForm = () => {
 
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {2
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
@@ -42,7 +42,7 @@ const LoginForm = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <FaUser className="icon" />
+            <FaEnvelope className="icon" />
           </div>
           <div className="input-box">
             <input

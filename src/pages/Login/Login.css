@@ -38,7 +38,7 @@
 
 
 
-.input-box input[type="text"],
+.input-box input[type="email"],
 .input-box input[type="password"]
 {
     width: 100%;

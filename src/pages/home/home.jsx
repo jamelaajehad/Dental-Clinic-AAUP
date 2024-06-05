@@ -3,7 +3,6 @@ import { useEffect, useRef } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import "./home.css";
-
 import { useNavigate } from "react-router-dom";
 import img2 from "../../Asset/app-images/img2.jpg";
 import home from "../../Asset/app-images/home.png";

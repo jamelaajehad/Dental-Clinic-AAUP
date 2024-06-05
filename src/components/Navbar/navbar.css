@@ -10,24 +10,26 @@ nav {
 }
 nav ul{
     display:flex;
-    margin-right: 10rem;
+    margin-right: 14rem;
 }
 nav ul li {
     list-style: none;
    
 }
-nav ul li a:not(.login) {
+nav ul li a:not(.Sign) {
     display: block;
     color: rgb(58, 57, 57) ; 
     text-decoration: none;
     padding: 0.2rem;
-    margin: 0 1rem;
+    margin-top: 1rem;
+    margin-left:1rem;
+    margin-right: 1rem;
     font-family: "Sriracha";
-    font-size: 21px;
+    font-size: 22px;
     border-radius: 0.5rem;
     position: relative;
 }
- nav ul li a:not(.login)::before{
+ nav ul li a:not(.Sign)::before{
     content: "";
     position: absolute;
     bottom: 0;
@@ -39,16 +41,16 @@ nav ul li a:not(.login) {
     visibility: hidden;
     transition: 0.3s ease-in-out;
 }
-nav ul li a:not(.login):hover::before{
+nav ul li a:not(.Sign):hover::before{
     width: 100%;
     visibility: visible; 
 }
-.login  { 
-overflow: hidden;
+.Sign { 
+  overflow: hidden;
   color: rgb(43, 41, 41);
   padding: 0.3em;
   border-radius: 50px;
-  font-size:17.5px;
+  font-size:18px;
   font-family:"Sriracha" ;
   transition:  0.3s ease  ;
   border: 1.9px solid rgb(67, 147, 167);
@@ -58,7 +60,7 @@ overflow: hidden;
   z-index: 1;
   position: relative;
   }
-  .login:before {
+  .Sign:before {
   content: "";
   position: absolute;
   left: 50%;
@@ -72,7 +74,7 @@ overflow: hidden;
   transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
   z-index: -1;
   }
-  .login:after {
+  .Sign:after {
     content: "";
     position: absolute;
     left: 55%;
@@ -87,20 +89,20 @@ overflow: hidden;
     z-index: -1;
   }
   
-  .login:hover {
+  .Sign:hover {
     color: #ffffff;
     border: 1px solid rgb(67, 147, 167);
   }
   
-  .login:hover:before {
+  .Sign:hover:before {
     top: -35%;
-    background-color:var(--main-color);
+    background-color:  rgb(67, 147, 167);
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
   }
   
-  .login:hover:after {
+  .Sign:hover:after {
     top: -45%;
-    background-color:var(--main-color);
+    background-color: rgb(67, 147, 167) ;
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
   }
   

@@ -45,7 +45,7 @@ const Navbar = () => {
                     <Link to="/services">Services</Link>
                 </li>
                 <li>
-                   <Link to="/Doctor">Find dentist</Link>
+                   <Link to="/clinics">Our Clinics</Link>
                 </li>
                 <li>
                    <Link to="/contact">Contact</Link>  
@@ -65,7 +65,7 @@ const Navbar = () => {
                     )}
                 </div>
             ) : (
-            <button onClick={() => navigate("register")} className="login">Sign Up</button>
+            <button onClick={() => navigate("register")} className="Sign">Sign Up</button>
             )}
         </nav>
     );

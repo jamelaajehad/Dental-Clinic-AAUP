@@ -3,10 +3,24 @@
  
  
 }
+/*.backgroundDoc {
+  font-family: "outfit", sans-serif;
+    scroll-behavior:smooth ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center ;
+    background-attachment:fixed ; 
+    background-image:  url('../../Asset/app-images/clinic.jpg');
+    height: 500px;
+    display :flex;
+    width: 100%;
+ 
+}*/
 
 .doctors {
   margin-top: 4rem;
-  margin-left: 4rem;
+  margin-left: 5.2rem;
+  margin-right:1rem;
   font-family: "Sriracha";
   font-size: 16px;
 

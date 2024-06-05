@@ -1,4 +1,9 @@
 
+.content {
+  background-color:rgb(255, 255, 255) ;   
+}
+
+
 .home-container {
     font-family: "outfit", sans-serif;
     scroll-behavior:smooth ;
@@ -11,16 +16,14 @@
     display :flex;
     width: 100%;
 }
-.content {
-  background-color:rgb(255, 255, 255) ;   
-}
+
  .title {
     margin-top: 18rem;
     color: white; 
     line-height:6rem ;
     margin-left: 15rem;
     font-family:"Sriracha" ;
-
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
 }
  .title .btn {
     color: rgba(15, 15, 15, 0.87) !important;
@@ -48,7 +51,7 @@
 .sec-container{
     flex-direction: row; 
     display: flex; 
-    gap: 380px;
+    gap: 450px;
     padding-top: 2rem;
 }
 
@@ -84,9 +87,9 @@ margin-top: 4px;
   line-height: 2rem;
   
 }
-.img img{
-   margin-top: 2em;
-   margin-right: 3rem;
+.img img {
+   margin-top: 2rem;
+  
    border-radius: 5px;
    margin-bottom: 2em;
 }
@@ -138,7 +141,7 @@ margin-top: 4px;
     font-style: italic;
     width: 60%; 
     margin-left: auto;
-  margin-right: auto;
+    margin-right: auto;
   }
   
   .cardSec p.cardp {

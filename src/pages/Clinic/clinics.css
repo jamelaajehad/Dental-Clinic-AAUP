@@ -1,0 +1,21 @@
+.clinicimage{
+    scroll-behavior:smooth ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center ;
+    background-attachment:fixed ; 
+    background-image:  url('../../Asset/app-images/clinic.jpg');
+    height: 90vh;
+    display :flex;
+    width: 100%;
+}
+.smile {
+    margin-top: 18rem;
+    color: rgb(252, 252, 255)   ; 
+    line-height:6rem ;
+    margin-left: 6rem;
+    font-family: "Sriracha";
+    font-weight: 400;
+    font-size: 36px; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+} 

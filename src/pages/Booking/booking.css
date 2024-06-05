@@ -31,7 +31,7 @@
     border: 1px solid rgba(69, 82, 88, 0.445) ;
     border-radius: 10px;
     width: 762px;
-    height:520px ;
+    height:550px ;
     box-shadow: 0px 0px 15px 0px rgba(24, 24, 24, 0.1);
     background-color: rgb(252, 252, 252);
   }
@@ -95,7 +95,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1.5px solid var(--main-color); 
+    border: 1.5px solid rgb(67, 147, 167) ; 
   }
   
   .arrow {
@@ -104,7 +104,7 @@
     height: 10px;
     transform: rotate(-90deg);
     width: 25px;
-    fill: var(--main-color);   
+    fill: rgb(67, 147, 167)  ;   
     z-index: 100000;
     transition: 300ms;
   }
@@ -140,7 +140,7 @@
     font-size: 17px;
   }
   .option:hover {
-    background-color: var(--sec-color);
+    background-color:rgb(67, 147, 167)  ;
     color: #fcfcfc ;
   }
   
@@ -210,11 +210,11 @@
    box-shadow: 5px 5px 10px 0px rgba(141, 140, 140, 0.1);
   }
   .time-slots button:hover {
-    background-color: var(--main-color);
+    background-color:rgb(67, 147, 167)  ;
     color: white ;
   }
 
-  .dayPickerContainer {
+  .dayPickerContainer1 {
     border:1px solid rgb(230, 230, 230) ;
     margin-left: 1rem;
     margin-top: 0.4rem;
@@ -223,6 +223,7 @@
     background-color: rgb(255, 255, 255)  ;
     box-shadow:0px 0px 15px 0px rgba(0, 0, 0, 0.1);
     font-family: "outfit";
+   
   }
   .booking1 h5 .icon,
   .booking2 p .icon {

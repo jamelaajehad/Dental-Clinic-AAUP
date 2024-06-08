@@ -1,0 +1,110 @@
+/*body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+  }*/
+  
+  .doctor-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .step-container {
+    text-align: center;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+  }
+  
+  .radio-button {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  .radio-button input[type="radio"] {
+    margin-right: 10px;
+  }
+  
+  .medical-history {
+    margin-bottom: 20px;
+  }
+  
+  .radio-options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .radio-options input[type="radio"] {
+    margin-right: 10px;
+  }
+  
+  .day-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .day-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #487885;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .day-button:hover {
+    background-color: #36585f;
+  }
+  
+  .time-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .time-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #487885;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .time-button:hover {
+    background-color: #36585f;
+  }
+  
+  .custom-next-button,
+  .custom-back-button {
+    background-color: #487885;
+    border: none;
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 700;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .custom-next-button:hover,
+  .custom-back-button:hover {
+    background-color: #36585f;
+    transform: scale(1.05);
+  }

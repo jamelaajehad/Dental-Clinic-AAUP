@@ -1,8 +1,8 @@
 .profile-settings {
-    /*background-color: #fff; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff; 
+    box-shadow:  0px 0px 15px 0px rgba(24, 24, 24, 0.1); 
     border-radius: 6px; 
-    border : 1px solid rgb(177, 180, 182) ;*/
+    border : 1px solid rgb(209, 209, 209) ;
     padding: 25px;
     width: 600px;
     margin: 5px auto;
@@ -58,7 +58,7 @@
     padding: 10px 15px; 
     border: none; 
     border-radius: 16px; 
-    background-color: var(--main-color); 
+    background-color: rgb(67, 147, 167)  ; 
     color: white; 
     font-size: 16px; 
     cursor: pointer; 
@@ -68,6 +68,6 @@
   }
   
   .profile-settings button:hover {
-    background-color:var(--sec-color) 
-  }
+    background-color:   rgb(55, 120, 136) ;
+  } 
   

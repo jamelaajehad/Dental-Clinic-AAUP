@@ -8,7 +8,7 @@ const ClinicCard = ({ clinicData }) => {
       <h1 align="center" className="clinic-title">
         Our Clinics
       </h1>
-      <p align="center" className="clinic-text">
+      <p align="center"  className="clinic-text">
         Our university offers diverse dental clinics, providing expert care from
         pediatric dentistry to oral surgery and orthodontics. Discover our
         high-quality services for optimal oral health.
@@ -16,8 +16,8 @@ const ClinicCard = ({ clinicData }) => {
       <div className="clinics-container">
         {clinicData.map((clinic, index) => (
           <div
-            data-aos="zoom-in-up"
-            data-aos-duration="1500"
+            data-aos="zoom-in"
+            data-aos-duration="2000"
             className="clinic-card"
             key={index}
           >

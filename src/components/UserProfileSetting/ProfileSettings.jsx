@@ -4,7 +4,6 @@ import { useState } from 'react';
 
 const ProfileSettings = () => {
   const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
  /* const handleProfilePictureChange = (e) => {
@@ -41,10 +40,6 @@ const ProfileSettings = () => {
           Username:
           <input type="text" name="username"  value={username} onChange={(e) => setUsername(e.target.value)}/>
         </label>
-        <label>
-          Email:
-          <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)}  />
-        </label>
         </div>
         <div className="form-row"> 
         <label>
@@ -56,7 +51,6 @@ const ProfileSettings = () => {
           <input type="password" name="password"value={password} onChange={(e) => setPassword(e.target.value)}  />
         </label>
         </div>
-          
         <div className="button-container">
         <button type="submit">Save Changes</button>
         </div>

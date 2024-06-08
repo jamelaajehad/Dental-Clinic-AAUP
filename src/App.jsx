@@ -15,6 +15,8 @@ import AdminPage from "./pages/AdminPage/AdminPage";
 import DoctorDashboard from "./pages/DoctorDashboard/DoctorDashboard";
 import Clinics from "./pages/Clinic/clinics";
 import { UserProvider } from "./contexts/UserContext";
+import Initial from "./pages/InitialExamination/initialexamination";
+
 
 const App = () => {
   return (
@@ -31,6 +33,7 @@ const App = () => {
           <Route path="/forget-comp" element={<ForgotPassword />} />
           <Route path="/clinics" element={<Clinics />} />
           <Route path="/booking" element={<Booking />} />
+          <Route path="/initialexamination " element={<Initial />} />
           <Route path="/user" element={<UserProfile />} />
           <Route path="/admin/:activepage" element={<AdminPage />} />
           <Route path="/DoctorDashboard" element={<DoctorDashboard />} />

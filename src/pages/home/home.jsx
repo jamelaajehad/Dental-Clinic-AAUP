@@ -9,7 +9,6 @@ import home from "../../Asset/app-images/home.png";
 import treatment from "../../Asset/app-images/treatment.png";
 import staff from "../../Asset/app-images/staff.png";
 import Footer from "../../components/Footer/footer";
-
 const Home = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
@@ -64,7 +63,7 @@ const Home = () => {
             <h1 align="left ">Welcome to the arab</h1>
             <h1 align="left ">American university Clinics</h1>
             {user ? (
-              <button onClick={() => navigate("LoginForm")} className="btn">
+              <button onClick={() => navigate("initialexamination")} className="btn">
                 Book Initial Examination
               </button>
             ) : (

@@ -2,7 +2,7 @@ import React from "react";
 import Footer from "../../components/Footer/footer";
 import "./userprofile.css";
 import { useState } from "react";
-import MyBookings from "../../components/MyBooking/Mybooking";
+import MyBookings from "../../components/UserBooking/Mybooking";
 import ProfileSettings from "../../components/UserProfileSetting/ProfileSettings";
 import setting from "../../Asset/app-images/setting.png";
 import mybooking from "../../Asset/app-images/mybooking.png";
@@ -36,15 +36,18 @@ const UserProfile = () => {
 
   return (
     <div>
+      <div className="profileimage">
+          <h1 align="center"> User Profile </h1>
+         </div>
       <div className="Userprofile ">
         <h4 className="myaccount"> My Account </h4>
         <div className="user-container">
-          <div className="items">
+          <div className="items1">
             <div className="profile-picture-container">
               <img
                 src={profilePicture}
                 alt="Profile"
-                style={{ width: "75px", height: "75px" }}
+                style={{ width: "95px", height: "95px" , borderRadius:"50px" }}
                 className="profile-picture"
               />
             </div>

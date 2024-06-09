@@ -1,7 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from "../../components/Footer/footer";
-import "./userprofile.css";
-import { useState } from "react";
 import MyBookings from "../../components/UserBooking/Mybooking";
 import ProfileSettings from "../../components/UserProfileSetting/ProfileSettings";
 import setting from "../../Asset/app-images/setting.png";
@@ -10,11 +8,12 @@ import logout from "../../Asset/app-images/logout.png";
 import profilePic from "../../Asset/app-images/profilePic.png";
 import { useUser } from "../../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
+import "./userprofile.css";
 
 const UserProfile = () => {
   const [activeSection, setActiveSection] = useState("profile");
   const [profilePicture, setProfilePicture] = useState(profilePic);
-  const { user, setUser } = useUser();
+  const { setUser } = useUser();
   const navigate = useNavigate();
 
   const handleProfilePictureChange = (e) => {
@@ -37,17 +36,17 @@ const UserProfile = () => {
   return (
     <div>
       <div className="profileimage">
-          <h1 align="center"> User Profile </h1>
-         </div>
-      <div className="Userprofile ">
-        <h4 className="myaccount"> My Account </h4>
+        <h1 align="center">User Profile</h1>
+      </div>
+      <div className="Userprofile">
+        <h4 className="myaccount">My Account</h4>
         <div className="user-container">
           <div className="items1">
             <div className="profile-picture-container">
               <img
                 src={profilePicture}
                 alt="Profile"
-                style={{ width: "95px", height: "95px" , borderRadius:"50px" }}
+                style={{ width: "95px", height: "95px", borderRadius: "50px" }}
                 className="profile-picture"
               />
             </div>
@@ -91,4 +90,5 @@ const UserProfile = () => {
     </div>
   );
 };
+
 export default UserProfile;

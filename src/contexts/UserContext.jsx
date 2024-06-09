@@ -11,16 +11,24 @@ export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       if (currentUser) {
         const userDoc = await getDoc(
           doc(firestore, "Doctors" || "Patients", currentUser.uid)
         );
         if (userDoc.exists()) {
-          setUser({ ...currentUser, ...userDoc.data() });
+          const userData = { ...currentUser, ...userDoc.data() };
+          setUser(userData);
+          localStorage.setItem("user", JSON.stringify(userData));
         }
       } else {
         setUser(null);
+        localStorage.removeItem("user");
       }
     });
 

@@ -1,15 +1,23 @@
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./navbar.css";
 import logo from "../../Asset/app-images/logo.png";
 import { useNavigate } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
-import { useUser } from "../../contexts/UserContext";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { user } = useUser();
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const userData = localStorage.getItem("user");
+    if (userData) {
+      setUser(JSON.parse(userData));
+    } else {
+      setUser(null);
+    }
+  }, []);
 
   return (
     <nav className="navbar">
@@ -39,10 +47,10 @@ const Navbar = () => {
         </li>
       </ul>
       {user ? (
-        <div className="sign user-profile" onClick={() => navigate("/user")}>
+        <div className="user-profile" onClick={() => navigate("/user")}>
           <FaUserCircle className="user-icon" />
           <div className="profile-info">
-            <span>{user.fullname}</span>{" "}
+            <span>{user.fullname}</span>
           </div>
         </div>
       ) : (

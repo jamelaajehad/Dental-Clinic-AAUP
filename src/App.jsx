@@ -17,7 +17,6 @@ import Clinics from "./pages/Clinic/clinics";
 import { UserProvider } from "./contexts/UserContext";
 import Initial from "./pages/InitialExamination/initialexamination";
 
-
 const App = () => {
   return (
     <UserProvider>

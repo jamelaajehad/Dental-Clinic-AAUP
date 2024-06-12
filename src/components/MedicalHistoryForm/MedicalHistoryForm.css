@@ -1,0 +1,112 @@
+.medical-history-form {
+    width: 800px;
+    margin-top: 3rem ;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px 3px rgba(86, 117, 131, 0.1);
+    margin-left: 19rem;
+    border: 1px solid rgb(235, 235, 235);
+    margin-bottom:6rem;
+    
+  }
+  .title-cont{
+    font-family: "Sriracha"  ;
+    margin-top: 4rem;
+    margin-left: 9rem;
+    font-size: 25px; 
+  }
+  .medical-history h4 {
+    color: #161616;
+    font-family: "outfit" ;
+    font-weight: 430;
+    font-style: normal; 
+    font-size:24px;
+    margin-bottom: 1.4rem;
+  }
+  .medical-picture{
+    margin-right: 5px;
+  }
+
+  .medical-history p {
+    margin-bottom: 10px;
+    font-weight: 430;
+    font-family: "outfit";
+    font-size: 19px;
+  }
+  .radio-options{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: left;
+    margin-bottom: 18px;
+    margin-left: 2rem;
+  }
+
+  .radio-options input[type="radio"]{
+    
+    margin-right: 5px;
+  }
+
+  .radio-options label{
+    margin-right: 15px;
+    font-family: "tajawal";
+    font-size: 19px;
+    font-weight: 400;
+  }
+  
+  .checkbox-options{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: left;
+  margin-bottom: 18px;
+  margin-left: 2rem;
+  }
+  .checkbox-options input[type="checkbox"]{
+    
+    margin-right: 5px;
+  }
+  .checkbox-options label{
+    margin-right: 15px;
+    font-family: "tajawal";
+    font-size: 19px;
+    font-weight: 400;
+  }
+  .container-a p{
+
+   margin-bottom: 10px;
+  font-weight: 430;
+  font-family: "outfit";
+  font-size: 18px;
+  }
+ 
+
+  .Buttons-Container {
+    display: flex;
+    justify-content: flex-end; 
+    margin-top: 1rem ; 
+    margin-right: 2rem;
+   
+}
+
+.next-button,
+.back-button {
+  width: 70px;
+    background-color: #487885;
+    border: none;
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 10px;
+  } 
+  .next-button:hover,
+  .back-button:hover {
+    background-color: #36585f;
+    transform: scale(1.05);
+  }
+  .next-button{
+    margin-left: 1rem;
+  }

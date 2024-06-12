@@ -1,0 +1,35 @@
+.dental-history {
+  width: 800px;
+  margin-top: 5rem ;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px 3px rgba(86, 117, 131, 0.1);
+  margin-left: 19rem;
+  border: 1px solid rgb(235, 235, 235);
+  margin-bottom: 6rem;
+}
+.dental-history h4{
+  margin-bottom: 1rem;
+  font-weight: 430;
+  font-family: "outfit";
+  font-size: 24px;
+}
+.dental-history p{
+  margin-bottom: 10px;
+  font-weight: 430;
+  font-family: "outfit";
+  font-size: 20px;
+}
+
+.dental-picture {
+ margin-right: 5px;
+}
+
+.Buttons-Container {
+    display: flex;
+    justify-content: flex-end; 
+    margin-top: 1rem ; 
+    margin-right: 2rem;
+   
+}

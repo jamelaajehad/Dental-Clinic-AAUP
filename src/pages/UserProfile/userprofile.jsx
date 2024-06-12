@@ -8,6 +8,8 @@ import logout from "../../Asset/app-images/logout.png";
 import profilePic from "../../Asset/app-images/profilePic.png";
 import { useUser } from "../../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
+import { auth } from "../../firebase"; // Adjust the import path as necessary
+import { signOut } from "firebase/auth";
 import "./userprofile.css";
 
 const UserProfile = () => {
@@ -27,10 +29,15 @@ const UserProfile = () => {
     }
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("user");
-    setUser(null);
-    navigate("/");
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      localStorage.removeItem("user");
+      setUser(null);
+      navigate("/");
+    } catch (error) {
+      console.error("Error logging out: ", error);
+    }
   };
 
   return (

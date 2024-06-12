@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { auth, firestore } from "../firebase";
 
@@ -18,13 +18,27 @@ export const UserProvider = ({ children }) => {
 
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       if (currentUser) {
-        const userDoc = await getDoc(
-          doc(firestore, "Doctors" || "Patients", currentUser.uid)
+        const doctorDoc = await getDoc(
+          doc(firestore, "Doctors", currentUser.uid)
         );
-        if (userDoc.exists()) {
-          const userData = { ...currentUser, ...userDoc.data() };
+
+        if (doctorDoc.exists()) {
+          const userData = { ...currentUser, ...doctorDoc.data() };
           setUser(userData);
           localStorage.setItem("user", JSON.stringify(userData));
+        } else {
+          const patientDoc = await getDoc(
+            doc(firestore, "Patients", currentUser.uid)
+          );
+
+          if (patientDoc.exists()) {
+            const userData = { ...currentUser, ...patientDoc.data() };
+            setUser(userData);
+            localStorage.setItem("user", JSON.stringify(userData));
+          } else {
+            setUser(null);
+            localStorage.removeItem("user");
+          }
         }
       } else {
         setUser(null);

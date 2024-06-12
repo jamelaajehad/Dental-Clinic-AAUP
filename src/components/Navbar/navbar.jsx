@@ -1,23 +1,15 @@
 import { Link } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./navbar.css";
 import logo from "../../Asset/app-images/logo.png";
 import { useNavigate } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
+import { useUser } from "../../contexts/UserContext"; // Update the import to your correct path
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [user, setUser] = useState(null);
+  const { user } = useUser(); // Use the user context
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const userData = localStorage.getItem("user");
-    if (userData) {
-      setUser(JSON.parse(userData));
-    } else {
-      setUser(null);
-    }
-  }, []);
 
   return (
     <nav className="navbar">

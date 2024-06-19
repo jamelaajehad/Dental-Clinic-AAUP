@@ -1,4 +1,4 @@
-import React from "react";
+
 import Navbar from "./components/Navbar/navbar";
 import Home from "./pages/home/home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -16,7 +16,7 @@ import DoctorDashboard from "./pages/DoctorDashboard/DoctorDashboard";
 import Clinics from "./pages/Clinic/clinics";
 import { UserProvider } from "./contexts/UserContext";
 import Initial from "./pages/InitialExamination/initialexamination";
-
+import PatientInformation from "./pages/PatientInformation/PatientInformation";
 
 const App = () => {
   return (
@@ -37,6 +37,9 @@ const App = () => {
           <Route path="/user" element={<UserProfile />} />
           <Route path="/admin/:activepage" element={<AdminPage />} />
           <Route path="/DoctorDashboard" element={<DoctorDashboard />} />
+          <Route path="/DoctorDashboard" element={<DoctorDashboard />} /> 
+          <Route path="/PatientInformation" element={<PatientInformation />} />
+          <Route path="/Services" element={<Services/>} />
         </Routes>
       </Router>
     </UserProvider>

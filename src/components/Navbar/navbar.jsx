@@ -24,9 +24,6 @@ const Navbar = () => {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/services">Services</Link>
-        </li>
-        <li>
           <Link to="/clinics">Our Clinics</Link>
         </li>
         {user && (
@@ -39,7 +36,7 @@ const Navbar = () => {
         </li>
       </ul>
       {user ? (
-        <div className="user-profile" onClick={() => navigate("/user")}>
+        <div className="User-Profile" onClick={() => navigate("/user")}>
           <FaUserCircle className="user-icon" />
           <div className="profile-info">
             <span>{user.fullname}</span>

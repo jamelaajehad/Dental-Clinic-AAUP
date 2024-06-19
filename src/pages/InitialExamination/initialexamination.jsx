@@ -1,4 +1,7 @@
+ 
 import React, { useState, useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 import { useNavigate } from "react-router-dom";
 import {
   format,
@@ -7,8 +10,15 @@ import {
   isWeekend,
   startOfToday,
 } from "date-fns";
-import { collection, getDocs } from "firebase/firestore";
-import { firestore } from "../../firebase"; // Adjust the import path as necessary
+import {
+  collection,
+  getDocs,
+  doc,
+  setDoc,
+  addDoc,
+  getDoc,
+} from "firebase/firestore";
+import { firestore, auth } from "../../firebase"; // Ensure you have imported auth from firebase
 import "./initialexamination.css";
 import Footer from "../../components/Footer/footer";
 import MedicalHistoryForm from "../../components/MedicalHistoryForm/MedicalHistoryForm";
@@ -21,11 +31,9 @@ const getNextWeekdays = (daysToShow) => {
   const days = eachDayOfInterval({ start: today, end: addDays(today, 14) })
     .filter((day) => {
       const dayOfWeek = new Date(day).getDay();
-      console.log("Day of week:", dayOfWeek);
       return dayOfWeek !== 4 && dayOfWeek !== 5;
     })
     .slice(0, daysToShow);
-  console.log("Filtered Days:", days);
   return days;
 };
 
@@ -63,77 +71,128 @@ const Initial = () => {
     const formattedMinute = minute.toString().padStart(2, "0");
     return `${formattedHour}:${formattedMinute} ${meridiem}`;
   };
-  const generateTimeSlots = (startTime, endTime) => {
-    console.log("Generating time slots...");
-    console.log("Start Time:", startTime, "End Time:", endTime);
 
-    const timeSlots = [];
-    const [startHour, startMinute] = startTime.split(":").map(Number);
-    let [endHour, endMinute] = endTime.split(":").map(Number);
+  
+const generateTimeSlots = (startTime, endTime) => {
+  const timeSlots = [];
+  const [startHour, startMinute] = startTime.split(":").map(Number);
+  let [endHour, endMinute] = endTime.split(":").map(Number);
 
-    // Adjust end time if it's before start time
-    if (
-      endHour < startHour ||
-      (endHour === startHour && endMinute < startMinute)
-    ) {
-      endHour += 24; // Add 24 hours to end time
+  if (endHour < startHour || (endHour === startHour && endMinute < startMinute)) {
+    endHour += 24; // Add 24 hours to end time
+  }
+
+  let currentHour = startHour;
+  let currentMinute = startMinute;
+
+  while (currentHour < endHour || (currentHour === endHour && currentMinute < endMinute)) {
+    const formattedStartTime = formatTime(currentHour, currentMinute);
+
+    currentMinute += 30; // Increment by 30 minutes for each time slot
+    if (currentMinute >= 60) {
+      currentHour += 1;
+      currentMinute -= 60;
     }
 
-    let currentHour = startHour;
-    let currentMinute = startMinute;
+    const formattedEndTime = formatTime(currentHour, currentMinute);
 
-    while (
-      currentHour < endHour ||
-      (currentHour === endHour && currentMinute < endMinute)
-    ) {
-      const formattedStartTime = formatTime(currentHour, currentMinute);
+    timeSlots.push({
+      startTime: formattedStartTime,
+      endTime: formattedEndTime,
+    });
+  }
 
-      currentMinute += 60;
-      if (currentMinute >= 60) {
-        currentHour += 1;
-        currentMinute -= 60;
-      }
+  return timeSlots;
+};
 
-      const formattedEndTime = formatTime(currentHour, currentMinute);
 
-      timeSlots.push({
-        startTime: formattedStartTime,
-        endTime: formattedEndTime,
+/*useEffect(() => {
+  const fetchAvailableTimes = async () => {
+    try {
+      const startTime = "08:30";
+      const endTime = "15:00";
+      const daysToShow = 7; // Show next 7 days including today
+      const today = startOfToday();
+      const endOfWeek = addDays(today, daysToShow - 1);
+
+      const days = eachDayOfInterval({ start: today, end: endOfWeek }).filter(
+        (day) => !isWeekend(day) // Filter out weekends
+      );
+
+      const timeSlots = generateTimeSlots(startTime, endTime);
+
+      // Fetch booked appointments from Firestore for the entire week
+      const querySnapshot = await getDocs(collection(firestore, "Appointments"));
+      const bookedTimes = {};
+      
+      querySnapshot.forEach((doc) => {
+        const { day, time } = doc.data();
+        if (!bookedTimes[day]) {
+          bookedTimes[day] = [];
+        }
+        bookedTimes[day].push(time);
       });
-    }
 
-    console.log("Generated Time Slots:", timeSlots);
-    return timeSlots;
+      // Mark time slots as available or reserved based on fetched data
+      const updatedTimeSlots = timeSlots.map((slot) => {
+        const day = format(selectedDay, "EEEE, MMMM do yyyy");
+        const isAvailable = !bookedTimes[day]?.includes(`${slot.startTime} - ${slot.endTime}`);
+        return {
+          ...slot,
+          available: isAvailable,
+        };
+      });
+
+      setAvailableTimes(updatedTimeSlots);
+    } catch (error) {
+      console.error("Error fetching available times:", error);
+    }
   };
 
-  useEffect(() => {
-    const fetchAvailableTimes = async () => {
-      try {
-        // Fetch available times from Firebase database
-        const querySnapshot = await getDocs(
-          collection(firestore, "InitialExamination")
-        );
-        const times = [];
-
-        querySnapshot.forEach((doc) => {
-          const startTime = doc.data().startTime;
-          const endTime = doc.data().endTime;
-          console.log("Start Time:", startTime, "End Time:", endTime);
-          const timeSlots = generateTimeSlots(startTime, endTime);
-          console.log("Time Slots:", timeSlots);
-          times.push(...timeSlots);
-        });
-
-        console.log("Available Times:", times);
-        setAvailableTimes(times);
-      } catch (error) {
-        console.error("Error fetching available times:", error);
-        // Handle error (e.g., show error message to user)
-      }
-    };
-
+  if (selectedDay) {
     fetchAvailableTimes();
-  }, []);
+  }
+}, [selectedDay]); // Run whenever selectedDay changes
+*/
+useEffect(() => {
+  const fetchAvailableTimes = async () => {
+    try {
+      const startTime = "08:30";
+      const endTime = "15:00";
+      const timeSlots = generateTimeSlots(startTime, endTime);
+
+      // Fetch booked appointments from Firestore
+      const querySnapshot = await getDocs(collection(firestore, "Appointments"));
+      const bookedTimes = {};
+
+      querySnapshot.forEach((doc) => {
+        const { day, time } = doc.data();
+        if (!bookedTimes[day]) {
+          bookedTimes[day] = [];
+        }
+        bookedTimes[day].push(time);
+      });
+
+      // Mark time slots as available or reserved based on fetched data
+      const updatedTimeSlots = timeSlots.map((slot) => {
+        const day = format(selectedDay, "EEEE, MMMM do yyyy");
+        const isAvailable = !bookedTimes[day]?.includes(`${slot.startTime} - ${slot.endTime}`);
+        return {
+          ...slot,
+          available: isAvailable,
+        };
+      });
+
+      setAvailableTimes(updatedTimeSlots);
+    } catch (error) {
+      console.error("Error fetching available times:", error);
+    }
+  };
+
+  if (selectedDay) {
+    fetchAvailableTimes();
+  }
+}, [selectedDay]); // Run whenever selectedDay changes
 
   const handleBookingTypeSelection = (type) => {
     setBookingType(type);
@@ -142,19 +201,63 @@ const Initial = () => {
 
   const handleDaySelection = (day) => {
     setSelectedDay(day);
-    setStep(5); // Move to the time selection step
+    setStep(4); 
   };
 
-  const handleTimeSelection = (startTime, endTime) => {
-    setSelectedTime(`${startTime} - ${endTime}`);
-    handleBookingConfirmation(
-      bookingType,
-      selectedDay,
-      `${startTime} - ${endTime}`
+  const handleTimeSelection = async (startTime, endTime) => {
+    // Check if the selected time slot is available
+    const selectedSlot = `${startTime} - ${endTime}`;
+    const isAvailable = availableTimes.find(slot => slot.startTime === startTime && slot.endTime === endTime)?.available;
+  
+    if (!isAvailable) {
+      alert("This time slot is already booked. Please choose another time.");
+    } else {
+      setSelectedTime(selectedSlot);
+      await handleBookingConfirmation(bookingType, selectedDay, selectedSlot);
+    }
+  };
+
+  
+
+  const handleBookingConfirmation = async (type, day, time) => {
+    const userId = auth.currentUser.uid;
+
+    // Reference to the patient document
+    const userDocRef = doc(firestore, "Patients", userId);
+
+    // Update the user document with medical history, dental history, and patient type
+    await setDoc(
+      userDocRef,
+      {
+        patientType: type, // Storing the patient type
+        medicalHistory: {
+          changesInHealth: medicalHistory.changesInHealth,
+          underPhysicianCare: medicalHistory.underPhysicianCare,
+          seriousIllnesses: medicalHistory.seriousIllnesses,
+          pregnant: medicalHistory.pregnant,
+          heartDisease: medicalHistory.heartDisease,
+          bloodDisease: medicalHistory.bloodDisease,
+        },
+        dentalHistory: {
+          previousDentalTreatment: dentalHistory.previousDentalTreatment,
+          injuryToFace: dentalHistory.injuryToFace,
+          dryMouth: dentalHistory.dryMouth,
+          unusualReaction: dentalHistory.unusualReaction,
+          clenchTeeth: dentalHistory.clenchTeeth,
+        },
+      },
+      { merge: true }
     );
-  };
 
-  const handleBookingConfirmation = (type, day, time) => {
+    // Store appointment information in "appointments" collection
+    const appointmentRef = collection(firestore, "Appointments");
+    await addDoc(appointmentRef, {
+      userId: userId,
+      
+      day: format(day, "EEEE, MMMM do yyyy"),
+      time: time,
+    });
+
     alert(
       `Booking confirmed!\nType: ${type}\nDay: ${format(
         day,
@@ -164,16 +267,15 @@ const Initial = () => {
   };
 
   const handleMedicalHistorySubmit = () => {
-    if (Object.values(medicalHistory)) {
-      // Move to the next step
-      setStep(3); // Move to the day selection step
+    if (Object.values(medicalHistory).every((field) => field)) {
+      setStep(3); // Move to the next step
     } else {
       alert("Please answer all medical history questions before proceeding.");
     }
   };
 
   const handleDentalHistorySubmit = () => {
-    if (Object.values(dentalHistory)) {
+    if (Object.values(dentalHistory).every((field) => field)) {
       setStep(4);
     } else {
       alert("Please answer all dental history questions before proceeding.");
@@ -183,9 +285,14 @@ const Initial = () => {
   const handleBackButton = () => {
     setStep(step - 1);
   };
+
   return (
     <div className="bigContainer">
-      <div className="initial-Pic"> </div>
+      <div className="initial-Pic"> 
+      <h1 data-aos="fade-right" data-aos-duration="1500" align="left">
+            Welcome to the initial examination clinic
+          </h1>
+      </div>
       {step === 1 && (
         <div>
           <div className="initial-title">
@@ -237,51 +344,53 @@ const Initial = () => {
         />
       )}
 
-      {step === 4 && (
-        <div className="step-container">
-          <h3>Select Day</h3>
-          <div className="day-options">
-            {availableDays.map((day, index) => (
-              <button
-                key={index}
-                className="day-button"
-                onClick={() => handleDaySelection(day)}
-              >
-                {format(day, "EEEE, MMMM do yyyy")}
-              </button>
-            ))}
-          </div>
-          <button className="custom-back-button" onClick={handleBackButton}>
-            Back
+{step === 4 && (
+  <div className="dayContainer">
+    <p>Choose the day and time that suits you for the initial examination</p>
+    <div className="day-options-container">
+      <h4> Select day </h4>
+      <div className="day-options">
+        {availableDays.map((day, index) => (
+          <button
+            key={index} 
+            className="day-button"
+            onClick={() => handleDaySelection(day)}
+          >
+            {format(day, "EEEE, MMMM do yyyy")}
           </button>
+        ))}
+      </div>
+    
+    {selectedDay && (
+      <div className="time-options-container">
+        <h4>Select Time for {format(selectedDay, "EEEE, MMMM do yyyy")}</h4>
+        <div className="time-options">
+          {availableTimes.map((time, index) => (
+            <button
+              key={index}
+              className={`time-button ${!time.available ? 'booked' : ''}`}
+              onClick={() => handleTimeSelection(time.startTime, time.endTime)}
+              disabled={!time.available}
+            >
+              {time.startTime} - {time.endTime}
+            </button>
+          ))}
         </div>
-      )}
-
-      {step === 5 && (
-        <div className="step-container">
-          <h3>Select initial examination time</h3>
-          <div className="time-options">
-            {availableTimes.map((time, index) => (
-              <button
-                key={index}
-                className="time-button"
-                onClick={() =>
-                  handleTimeSelection(time.startTime, time.endTime)
-                }
-              >
-                {`${time.startTime} - ${time.endTime}`}
-              </button>
-            ))}
-          </div>
-          <button className="custom-back-button" onClick={handleBackButton}>
-            Back
+        <button className="custom-back-button" onClick={handleBackButton}>
+           Back
           </button>
-        </div>
-      )}
-
-      <Footer />
+      </div>
+      
+    )}
     </div>
+  </div>
+)}
+
+  <Footer />
+  </div>
   );
 };
 
 export default Initial;
+
+

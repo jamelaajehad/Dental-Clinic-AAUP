@@ -2,7 +2,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(250, 250, 250);
+    background-color: rgb(255, 255, 255);
     position: sticky;
     top: 0;
     padding-right: 3rem;
@@ -10,7 +10,7 @@ nav {
 
 nav ul {
     display: flex;
-    margin-right: 14rem;
+    margin-right: 7rem;
 }
 
 nav ul li {
@@ -64,6 +64,7 @@ nav ul li a:not(.Sign):hover::before {
     background-color: rgb(255, 255, 255);
     z-index: 1;
     position: relative;
+    margin-right: 2rem;
 }
 
 .Sign:before {
@@ -131,20 +132,30 @@ nav .menu span {
     border-radius: 0.2rem;
 }
 
-.user-profile {
+.User-Profile {
     overflow: hidden;
     color: rgb(43, 41, 41);
     padding: 8px;
     border-radius: 50px;
     font-size: 18px;
     font-family: "Sriracha";
-
-    border: 1.9px solid rgb(67, 147, 167);
+    cursor: pointer;
+    border: 1px solid rgb(67, 147, 167);
     flex-direction: row;
     display: flex;
     align-items: center;
     gap: 5px;
+    margin-right: 2rem;
 }
+.user-profile .user-icon {
+    font-size: 24px; 
+  }
+  
+  .user-profile .profile-info {
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+  }
 
 @media (max-width:480px) {
     nav .menu {

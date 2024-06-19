@@ -6,7 +6,7 @@ const MedicalHistoryForm = ({ medicalHistory, setMedicalHistory, handleMedicalHi
   return (
     <div  >
     <div className='title-cont'> 
-    <h4> Help Us Provide Better Care: Complete Your Medical History </h4>
+    <h4> Help Us Provide Better Care: Complete Your Medical and Dental History </h4>
     </div>
      <div  className= "medical-history-form "> 
       <div className="medical-history">

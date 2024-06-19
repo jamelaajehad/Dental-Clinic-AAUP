@@ -1,27 +1,38 @@
-/*.initial-Pic{
+.initial-Pic{
   scroll-behavior: smooth;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
   background-image: url('../../Asset/app-images/initialpic.jpg');
-  height: 80vh;
+  height:75vh;
   display: flex;
   width: 100%;
-}*/ 
+  
+}
+.initial-Pic h1 {
+    margin-top:19rem;
+    color: rgb(252, 252, 255)   ; 
+    line-height:6rem ;
+    margin-left: 6rem;
+    font-family: "Sriracha";
+    font-weight: 400;
+    font-size: 36px; 
+    text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.5); 
+}
   .initial-title{
     font-family: "Sriracha"  ;
-    margin-top: 3rem;
+    margin-top: 4.5rem;
     font-size: 25px;
     width: 60%;
     margin-left: 5rem;
-    margin-right: auto;
-   
+    margin-right: auto; 
   }
+
   .select-Container {
     width: 600px;
     height: 200px;
-    margin-top: 5rem;
+    margin-top: 3rem;
     padding: 20px;
     background-color: #fff;
     box-shadow: 2px 2px 2px 2px #dcdddd,
@@ -43,9 +54,6 @@
     margin-bottom: 1.4rem;
   }
   
-  
-
-  
   .radio-button {
     display: flex;
     align-items: center;
@@ -60,45 +68,61 @@
     margin-right: 10px;
   }
   
-.step-container{
-  margin-bottom: 7rem;
-  width: 700px;
-  margin-top: 5rem;
-  padding: 20px;
-  background-color: #fff; 
- box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
- margin-left: 20rem;
-  border : 1px solid rgb(209, 208, 208) ;
-  margin-bottom: 6rem;
-}
+.day-options-container{
+  margin-bottom: 10rem;
+  margin-top: 2rem;
+  padding: 18px;
+  background-color: #ffffff; 
+  box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 13px;
+  margin-left: 7rem;
+  margin-right: 5rem;
+  border : 1px solid rgb(238, 238, 238) ;
+ 
+} 
   
-.step-container h3 {
-  font-family:"Sriracha" ;
-  font-size: 30px;
+.day-options-container h4 {
+  font-family:"outfit" ;
+  font-size: 25px;
+  font-weight: 350;
+  font-style: italic;
+  margin-top: 1rem;
+}
+.dayContainer p {
+    margin-top:4rem;
+    font-family: "Sriracha"  ;
+    margin-left: 7rem;
+    font-size: 25px; 
 }
   .day-options {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 15px;
     justify-content: center;
-    margin-bottom: 20px;
-    margin-top:2rem;
+    margin-bottom:3rem;
+    margin-top:1rem;
+
+  }
+  .time-options-container {
+    margin-top: 20px;
   }
   
   .day-button {
+    font-size: 19px;
     font-family: "outfit";
     padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #487885;
-    color: #fff;
+    border: 1px solid rgb(232, 234, 235) ;
+    border-radius: 25px;
+    background-color: #ececec;
+    color: #111111;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    box-shadow:   2px 3px 2px rgba(37, 37, 37, 0.1); 
   }
   
   .day-button:hover {
-    background-color: #36585f;
+    background-color: #317481;
+    color: #fff ;
   }
   
   .time-options {
@@ -110,18 +134,39 @@
   }
   
   .time-button {
+    font-size: 16px;
+    font-family: "outfit";
     padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #487885;
-    color: #fff;
+    border: 1px solid rgb(201, 201, 201) ;
+    border-radius: 25px;
+    background-color: #ffffff;
+    color: #0a0a0a;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    box-shadow:   2px 3px 2px rgba(37, 37, 37, 0.1); 
+    /*font-size: 16px;
     font-family: "outfit";
+    padding: 10px 20px;
+    border: 1px solid rgb(232, 234, 235) ;
+    border-radius: 25px;
+    background-color: #ececec;
+    color: #111111;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow:   2px 3px 2px rgba(37, 37, 37, 0.1); */
+    
+  }
+
+  .time-button.booked {
+    background-color: #ececec; 
+    color: #7a7a7a; 
+    cursor: not-allowed; 
+    opacity: 0.7; 
   }
   
   .time-button:hover {
-    background-color: #36585f;
+    background-color: #317481;
+    color: #fff ; 
   }
   
   .custom-next-button,

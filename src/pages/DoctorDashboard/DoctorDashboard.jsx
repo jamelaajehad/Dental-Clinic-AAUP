@@ -4,6 +4,10 @@ import mybooking from "../../Asset/app-images/mybooking.png";
 import setting from "../../Asset/app-images/setting.png";
 import logout from "../../Asset/app-images/logout.png";
 import manage from "../../Asset/app-images/manage.png";
+import { signOut } from "firebase/auth";
+import { useUser } from "../../contexts/UserContext";
+import { useNavigate } from "react-router-dom";
+import { auth } from "../../firebase";
 
 const DoctorDashboard = () => {
   const [selectedAction, setSelectedAction] = useState("appointments");
@@ -12,7 +16,9 @@ const DoctorDashboard = () => {
   const [doctorEmail, setDoctorEmail] = useState("");
   const [doctorPassword, setDoctorPassword] = useState("");
   const [doctorPhone, setDoctorPhone] = useState("");
-
+  const { setUser } = useUser();
+  const navigate = useNavigate();
+  
   const handleActionClick = (action) => {
     setSelectedAction(action);
   };
@@ -39,9 +45,15 @@ const DoctorDashboard = () => {
     console.log("Account deleted");
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    window.location.href = "/LoginForm";
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      localStorage.removeItem("user");
+      setUser(null);
+      navigate("/");
+    } catch (error) {
+      console.error("Error logging out: ", error);
+    }
   };
 
   return (

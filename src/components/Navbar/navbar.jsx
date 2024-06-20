@@ -11,6 +11,16 @@ const Navbar = () => {
   const { user } = useUser(); // Use the user context
   const navigate = useNavigate();
 
+  const handleUserProfileClick = () => {
+    if (user) {
+      if (user.userType === "doctor") {
+        navigate("/DoctorDashboard");
+      } else {
+        navigate("/user");
+      }
+    }
+  };
+
   return (
     <nav className="navbar">
       <img src={logo} alt="Logo" className="logo" />
@@ -26,23 +36,25 @@ const Navbar = () => {
         <li>
           <Link to="/clinics">Our Clinics</Link>
         </li>
-        {user && (
+        {user && user.userType === "patient" && (
           <li>
-            <Link to="/mybooking">My Booking</Link>
+          <Link to="/mybooking">My Booking</Link>
           </li>
         )}
-         <li>
-            <Link to="/PatientInformation">PatientInformation</Link>
+        {user && user.userType === "doctor" && (
+          <li>
+            <Link to="/PatientInformation">Patient Information</Link>
           </li>
+        )}
         <li>
           <Link to="/contact">Contact</Link>
         </li>
       </ul>
       {user ? (
-        <div className="User-Profile" onClick={() => navigate("/user")}>
+        <div className="User-Profile" onClick={handleUserProfileClick} >
           <FaUserCircle className="user-icon" />
           <div className="profile-info">
-            <span>{user.fullname}</span>
+            <span>{ user.additionalData.fullname}</span>
           </div>
         </div>
       ) : (

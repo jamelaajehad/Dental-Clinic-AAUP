@@ -259,14 +259,22 @@ const Register = () => {
 
       const collectionName = userType === "doctor" ? "Doctors" : "Patients";
 
-      await setDoc(doc(db, collectionName, user.uid), {
+      // Construct the user data object
+      const userData = {
         email: email,
         fullname: fullname,
         phoneNumber: phoneNumber,
         studentId: studentId,
         userType: userType,
         gender: gender,
-      });
+      };
+
+      // Add the `flag` field if the user is a doctor
+      if (userType === "doctor") {
+        userData.flag = false;
+      }
+
+      await setDoc(doc(db, collectionName, user.uid), userData);
 
       toast.success("Registration successful! Please log in.");
       setTimeout(() => {
@@ -407,4 +415,3 @@ const Register = () => {
 };
 
 export default Register;
-

@@ -116,3 +116,25 @@
 <button className="custom-back-button" onClick={handleBackButton}>Back</button>
 </div>
 */
+/////////////////////////////////
+
+      {step === 5 && (
+        <div className="step-container">
+          <h3>Select Time</h3>
+          <div className="time-options">
+            {availableTimes.map((time, index) => (
+              <button
+                key={index}
+                className={`time-button ${!time.available ? 'booked' : ''}`}
+                onClick={() => handleTimeSelection(time.startTime, time.endTime)}
+                disabled={!time.available}
+              >
+                {time.startTime} - {time.endTime}
+              </button>
+            ))}
+          </div>
+          <button className="custom-back-button" onClick={handleBackButton}>
+            Back
+          </button>
+        </div>
+      )}

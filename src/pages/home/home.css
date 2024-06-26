@@ -101,7 +101,7 @@
 
 .third-container {
   margin-top: 5rem;
-  margin-bottom: 6rem;
+  margin-bottom: 3rem;
   margin-left: 3.5rem;
   margin-right: 3.5rem;
 }
@@ -138,8 +138,6 @@
   font-weight: 420;
   font-size: 22px;
   font-family: "PT Serif";
-
-  /*font-family: "Atkinson Hyperlegible" ;*/
 }
 
 .description {
@@ -168,8 +166,35 @@
 }
 
 .fourth-container {
-  padding-top: 3rem;
+   margin-top: 7rem;
+   margin-left: 2rem;
+   margin-right: 2rem; 
+   margin-bottom: 10rem; 
+}
 
+.cards-container2{
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.cardSecFourth {
+  width: 390px;
+  height: 200px;
+  padding: 20px; 
+  text-align: center;
+  background-color: #eaf0f1c5; 
+  border-radius: 15px; 
+  margin: 15px;
+  position: relative; 
+}
+.cardSecFourth h4 {
+  text-align: left;
+  color: #222121;
+  font-family: "outfit";
+  font-weight: 450;
+  font-size: 25px;
 }
 
 h2 {
@@ -184,15 +209,31 @@ h2 {
 }
 
 p span {
-  color: rgb(28, 28, 29);
-  font-size: 20px;
-  font-family: 'outfit';
-  font-weight: 400;
-  margin-left: 2rem;
-
+  color: #5a5959;
+  font-family: "tajawal";
+  font-size: 21px;
+  font-style: italic;
+}
+.card-icon-fourth {
+  width: 70px; 
+  height: 70px;
+  margin-bottom: 15px; 
+  position: absolute;
+  top: 12px; 
+  left: 15px;
 }
 
-.cards {
+.card-content-fourth {
+  margin-left: 80px; 
+}
+.cardpFourth {
+  color: #5a5959;
+  font-family: "tajawal";
+  font-size: 18px;
+  text-align: left;
+}
+
+/* .cards {
   display: flex;
   flex-direction: row;
   gap: 110px;
@@ -323,4 +364,4 @@ p span {
 .cards2:hover>.card:not(:hover) {
   filter: blur(10px);
   transform: scale(0.9, 0.9);
-}
+} */

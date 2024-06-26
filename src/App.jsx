@@ -17,7 +17,7 @@ import { UserProvider } from "./contexts/UserContext";
 import Initial from "./pages/InitialExamination/initialexamination";
 import PatientInformation from "./pages/PatientInformation/PatientInformation";
 import Chat from "./pages/Chat/Chat"; 
-
+import MyBooking from "./pages/MyBooking/mybooking";
 
 const App = () => {
   return (
@@ -25,7 +25,7 @@ const App = () => {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/LoginForm" element={<LoginForm1 />} />
           <Route path="/register" element={<Register />} />
@@ -38,9 +38,10 @@ const App = () => {
           <Route path="/user" element={<UserProfile />} />
           <Route path="/admin/:activepage" element={<AdminPage />} />
           <Route path="/DoctorDashboard" element={<DoctorDashboard />} />
-          <Route path="/PatientInformation" element={<PatientInformation />} />
-          <Route path="/Services" element={<Services />} />
           <Route path="/chat" element={<Chat />} />
+          <Route path="/PatientInformation" element={<PatientInformation />} />
+          <Route path="/Services" element={<Services/>} />
+          <Route path="/mybooking" element={<MyBooking />} />
         </Routes>
       </Router>
     </UserProvider>

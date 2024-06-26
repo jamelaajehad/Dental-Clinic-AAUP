@@ -1,15 +1,23 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { IoChatbubbleOutline } from "react-icons/io5";
-import { FaUserCircle } from "react-icons/fa";
-import logo from "../../Asset/app-images/logo.png";
-import { useUser } from "../../contexts/UserContext";
+/*import React, { useState } from "react";
 import "./navbar.css";
-
+import logo from "../../Asset/app-images/logo.png";
+import { useNavigate } from "react-router-dom";
+import { FaUserCircle } from "react-icons/fa";
+import { useUser } from "../../contexts/UserContext"; 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { user } = useUser();
+  const { user } = useUser(); // Use the user context
   const navigate = useNavigate();
+
+  const handleUserProfileClick = () => {
+    if (user) {
+      if (user.userType === "doctor") {
+        navigate("/DoctorDashboard");
+      } else {
+        navigate("/user");
+      }
+    }
+  };
 
   return (
     <nav className="navbar">
@@ -24,35 +32,97 @@ const Navbar = () => {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/services">Services</Link>
+          <Link to="/clinics">Our Clinics</Link>
+        </li>
+        {user && user.userType === "patient" && (
+          <li>
+          <Link to="/mybooking">My Booking</Link>
+          </li>
+        )}
+        {user && user.userType === "doctor" && user.isPrimaryExaminationDoctor && (
+          <li>
+            <Link to="/PatientInformation">Patient Information</Link>
+          </li>
+        )}
+        <li>
+          <Link to="/contact">Contact</Link>
+        </li>
+      </ul>
+      {user ? (
+        <div className="User-Profile" onClick={handleUserProfileClick} >
+          <FaUserCircle className="user-icon" />
+          <div className="profile-info">
+            <span>{ user.additionalData.fullname}</span>
+          </div>
+        </div>
+      ) : (
+        <button onClick={() => navigate("/register")} className="Sign">
+          Sign Up
+        </button>
+      )}
+    </nav>
+  );
+};
+
+export default Navbar;*/
+
+import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import "./navbar.css";
+import logo from "../../Asset/app-images/logo.png";
+import { useNavigate } from "react-router-dom";
+import { FaUserCircle } from "react-icons/fa";
+import { useUser } from "../../contexts/UserContext"; // Update the import to your correct path
+
+const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const { user } = useUser(); // Use the user context
+  const navigate = useNavigate();
+
+  const handleUserProfileClick = () => {
+    if (user) {
+      if (user.userType === "doctor") {
+        navigate("/DoctorDashboard");
+      } else {
+        navigate("/user");
+      }
+    }
+  };
+
+  return (
+    <nav className="navbar">
+      <img src={logo} alt="Logo" className="logo" />
+      <div className="menu" onClick={() => setMenuOpen(!menuOpen)}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul className={menuOpen ? "open" : ""}>
+        <li>
+          <Link to="/">Home</Link>
         </li>
         <li>
           <Link to="/clinics">Our Clinics</Link>
         </li>
-        {user && (
+        {user && user.userType === "patient" && (
           <li>
-            <Link to="/mybooking">My Booking</Link>
+            <Link to="/mybooking"  >My Booking</Link>
           </li>
         )}
-        <li>
-          <Link to="/PatientInformation">Patient Information</Link>
-        </li>
+        {user && user.userType === "doctor" && user.isPrimaryExaminationDoctor && (
+          <li>
+            <Link to="/PatientInformation">Patient Information</Link>
+          </li>
+        )}
         <li>
           <Link to="/contact">Contact</Link>
         </li>
-        {user && (
-          <li>
-            <Link to="/chat" className="nav-link">
-              <IoChatbubbleOutline className="chat-icon" /> {/* أيقونة الشات */}
-            </Link>
-          </li>
-        )}
       </ul>
       {user ? (
-        <div className="user-profile" onClick={() => navigate("/user")}>
+        <div className="User-Profile" onClick={handleUserProfileClick}>
           <FaUserCircle className="user-icon" />
           <div className="profile-info">
-            <span>{user.fullname}</span>
+            <span>{user.additionalData.fullname}</span>
           </div>
         </div>
       ) : (
@@ -65,3 +135,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

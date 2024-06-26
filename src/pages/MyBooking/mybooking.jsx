@@ -1,54 +1,89 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { collection, query, where, getDocs } from "firebase/firestore";
-import { firestore } from '../../firebase'; // تأكد من صحة هذا المسار
+import React, { useEffect, useState } from "react";
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  doc,
+  getDoc,
+} from "firebase/firestore"; // Ensure getDoc is imported here
+import { firestore } from "../../firebase";
 import Footer from "../../components/Footer/footer";
+import { useUser } from "../../contexts/UserContext";
 
 const MyBooking = () => {
-  const location = useLocation();
-  const { patientId } = location.state || {};
-  const [matchingClinics, setMatchingClinics] = useState([]);
-  const [requiredTreatmentCondition, setRequiredTreatmentCondition] = useState('');
+  const [matchingClinic, setMatchingClinic] = useState(null);
+  const { user } = useUser();
+  const [requiredTreatmentCondition, setRequiredTreatmentCondition] =
+    useState("");
 
   useEffect(() => {
     const fetchPatientData = async () => {
-      if (!patientId) return;
+      try {
+        // Check if user is set correctly
+        console.log("User:", user);
 
-      // Fetch patient data to get required treatment condition
-      const patientsCollectionRef = collection(firestore, "Patients");
-      const patientDocs = await getDocs(query(patientsCollectionRef, where("patientId", "==", patientId)));
+        if (!user || !user.uid) {
+          console.error("User is not set correctly or does not have a uid");
+          return;
+        }
 
-      if (!patientDocs.empty) {
-        const patientData = patientDocs.docs[0].data();
+        // Fetch patient data to get required treatment condition
+        const patientDocRef = doc(firestore, "Patients", user.uid);
+        const patientDoc = await getDoc(patientDocRef);
+
+        if (!patientDoc.exists()) {
+          console.error("No patient found with the given uid");
+          return;
+        }
+
+        const patientData = patientDoc.data();
+        console.log("Patient Data:", patientData);
         setRequiredTreatmentCondition(patientData.requiredTreatmentCondition);
 
-        // Fetch matching clinics based on required treatment condition
+        // Fetch matching clinic based on required treatment condition
         const clinicsCollectionRef = collection(firestore, "Clinics");
-        const clinicsQuery = query(clinicsCollectionRef, where("RequiredTreatment", "==", patientData.requiredTreatmentCondition));
+        const clinicsQuery = query(
+          clinicsCollectionRef,
+          where(
+            "RequiredTreatment",
+            "array-contains",
+            patientData.requiredTreatmentCondition
+          )
+        );
         const clinicDocs = await getDocs(clinicsQuery);
 
-        const clinics = clinicDocs.docs.map(doc => doc.data());
-        setMatchingClinics(clinics);
+        if (clinicDocs.empty) {
+          console.log(
+            "No matching clinic found for the required treatment condition"
+          );
+          setMatchingClinic(null);
+          return;
+        }
+
+        const clinicData = clinicDocs.docs[0].data();
+        console.log("Matching Clinic Data:", clinicData);
+        setMatchingClinic(clinicData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
       }
     };
 
-    fetchPatientData();
-  }, [patientId]);
+    if (user && user.uid) {
+      fetchPatientData();
+    }
+  }, [user]);
 
   return (
     <div>
-      <h3>Matching Clinics</h3>
-      {matchingClinics.length > 0 ? (
-        <ul>
-          {matchingClinics.map((clinic, index) => (
-            <li key={index}>
-              <h4>{clinic.clinicName}</h4>
-              <p>{clinic.location}</p>
-            </li>
-          ))}
-        </ul>
+      <h3>Matching Clinic</h3>
+      {matchingClinic ? (
+        <div>
+          <h4>{matchingClinic.ClinicName}</h4>
+          <p>{matchingClinic.Location}</p>
+        </div>
       ) : (
-        <p>No clinics found for the selected treatment condition.</p>
+        <p>No clinic found for the selected treatment condition.</p>
       )}
       <Footer />
     </div>

@@ -1,14 +1,14 @@
-import { Link } from "react-router-dom";
 import React, { useState } from "react";
-import "./navbar.css";
-import logo from "../../Asset/app-images/logo.png";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { IoChatbubbleOutline } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
-import { useUser } from "../../contexts/UserContext"; // Update the import to your correct path
+import logo from "../../Asset/app-images/logo.png";
+import { useUser } from "../../contexts/UserContext";
+import "./navbar.css";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { user } = useUser(); // Use the user context
+  const { user } = useUser();
   const navigate = useNavigate();
 
   return (
@@ -34,12 +34,19 @@ const Navbar = () => {
             <Link to="/mybooking">My Booking</Link>
           </li>
         )}
-         <li>
-            <Link to="/PatientInformation">PatientInformation</Link>
-          </li>
+        <li>
+          <Link to="/PatientInformation">Patient Information</Link>
+        </li>
         <li>
           <Link to="/contact">Contact</Link>
         </li>
+        {user && (
+          <li>
+            <Link to="/chat" className="nav-link">
+              <IoChatbubbleOutline className="chat-icon" /> {/* أيقونة الشات */}
+            </Link>
+          </li>
+        )}
       </ul>
       {user ? (
         <div className="user-profile" onClick={() => navigate("/user")}>

@@ -5,7 +5,7 @@
   flex-direction: column;
   padding: 20px;
   margin-bottom: 4rem;
-  background-color: rgb(253, 253, 253);
+  background-color: rgb(255, 255, 255);
 }
 
 .doctor-container {
@@ -14,9 +14,9 @@
   padding: 20px;
 }
 
-.myaccount2 {
+.myaccount1 h4 {
   margin-top: 1rem;
-  font-family: "Sriracha", cursive;
+  font-family: "outfit";
   font-weight: 400;
   margin-left: 9rem;
   font-size: 30px;
@@ -27,25 +27,25 @@
   background-color: rgb(255, 255, 255);
   margin-top: 2rem;
   flex-direction: column;
-  margin-left: 7rem;
+  margin-left: 6rem;
   cursor: pointer;
-  width: 190px;
-  height: 400px;
+  width: 210px;
+  height: 370px;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border: 1px solid rgb(223, 221, 221);
 }
 
-.ulitems2 li {
+.ulitems1 li {
   margin-top: 2rem;
   cursor: pointer;
   color: rgb(15, 15, 15);
   font-size: 18px;
   font-family: "Outfit";
-  margin-left: 1rem;
+  /* margin-left: 1rem; */
 }
 
-.ulitems2 li:hover {
+.ulitems1 li:hover {
   color: rgb(67, 147, 167);
 }
 

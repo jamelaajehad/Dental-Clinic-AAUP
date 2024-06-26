@@ -105,55 +105,6 @@ const generateTimeSlots = (startTime, endTime) => {
   return timeSlots;
 };
 
-
-/*useEffect(() => {
-  const fetchAvailableTimes = async () => {
-    try {
-      const startTime = "08:30";
-      const endTime = "15:00";
-      const daysToShow = 7; // Show next 7 days including today
-      const today = startOfToday();
-      const endOfWeek = addDays(today, daysToShow - 1);
-
-      const days = eachDayOfInterval({ start: today, end: endOfWeek }).filter(
-        (day) => !isWeekend(day) // Filter out weekends
-      );
-
-      const timeSlots = generateTimeSlots(startTime, endTime);
-
-      // Fetch booked appointments from Firestore for the entire week
-      const querySnapshot = await getDocs(collection(firestore, "Appointments"));
-      const bookedTimes = {};
-      
-      querySnapshot.forEach((doc) => {
-        const { day, time } = doc.data();
-        if (!bookedTimes[day]) {
-          bookedTimes[day] = [];
-        }
-        bookedTimes[day].push(time);
-      });
-
-      // Mark time slots as available or reserved based on fetched data
-      const updatedTimeSlots = timeSlots.map((slot) => {
-        const day = format(selectedDay, "EEEE, MMMM do yyyy");
-        const isAvailable = !bookedTimes[day]?.includes(`${slot.startTime} - ${slot.endTime}`);
-        return {
-          ...slot,
-          available: isAvailable,
-        };
-      });
-
-      setAvailableTimes(updatedTimeSlots);
-    } catch (error) {
-      console.error("Error fetching available times:", error);
-    }
-  };
-
-  if (selectedDay) {
-    fetchAvailableTimes();
-  }
-}, [selectedDay]); // Run whenever selectedDay changes
-*/
 useEffect(() => {
   const fetchAvailableTimes = async () => {
     try {

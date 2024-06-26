@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import "./DoctorDashboard.css";
+import "./doctorExaminationProfile.css";
 import mybooking from "../../Asset/app-images/mybooking.png";
 import setting from "../../Asset/app-images/setting.png";
 import logout from "../../Asset/app-images/logout.png";
-import manage from "../../Asset/app-images/manage.png";
 import { signOut } from "firebase/auth";
 import { useUser } from "../../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
 
-const DoctorDashboard = () => {
+const DoctorInitial = () => {
   const [selectedAction, setSelectedAction] = useState("appointments");
   const [profilePicture, setProfilePicture] = useState(null);
   const [doctorName, setDoctorName] = useState("Dr. [Doctor Name]");
@@ -58,10 +57,10 @@ const DoctorDashboard = () => {
   return (
     <div>
       <div className="doctor-dashboard">
-        <h4 className="myaccount1">My Account</h4>
+        <h4 className="myaccount2">My Account</h4>
         <div className="doctor-container">
-          <div className="Docitems">
-            <ul className="ulitems1">
+          <div className="Docitems2">
+            <ul className="ulitems2">
               <li onClick={() => handleActionClick("appointments")}>
                 <img
                   src={mybooking}
@@ -69,14 +68,6 @@ const DoctorDashboard = () => {
                   style={{ width: "30px", height: "30px" }}
                 />
                 Appointments
-              </li>
-              <li onClick={() => handleActionClick("patients")}>
-                <img
-                  src={manage}
-                  alt="#"
-                  style={{ width: "30px", height: "30px" }}
-                />
-                Manage Patients
               </li>
               <li onClick={() => handleActionClick("Profile settings")}>
                 <img
@@ -122,32 +113,7 @@ const DoctorDashboard = () => {
                 </table>
               </div>
             )}
-            {selectedAction === "patients" && (
-              <div className="table-container">
-                <h3>Manage Patients</h3>
-                <table className="patients-table">
-                  <thead>
-                    <tr>
-                      <th>Patient Name</th>
-                      <th>Age</th>
-                      <th>Contact Number</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Jane Doe</td>
-                      <td>30</td>
-                      <td>123-456-7890</td>
-                      <td>
-                        <button className="button">Edit</button>
-                        <button className="button">Delete</button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            )}
+            
             {selectedAction === "Profile settings" && (
               <div className="form-container">
                 <h3> Profile Settings</h3>
@@ -209,4 +175,4 @@ const DoctorDashboard = () => {
   );
 };
 
-export default DoctorDashboard;
+export default DoctorInitial ;

@@ -18,6 +18,7 @@ import { UserProvider } from "./contexts/UserContext";
 import Initial from "./pages/InitialExamination/initialexamination";
 import PatientInformation from "./pages/PatientInformation/PatientInformation";
 import MyBooking from "./pages/MyBooking/mybooking";
+import DoctorInitial from "./pages/DoctorExaminationProfile/doctorExaminationProfile";
 
 const App = () => {
   return (
@@ -38,6 +39,7 @@ const App = () => {
           <Route path="/user" element={<UserProfile />} />
           <Route path="/admin/:activepage" element={<AdminPage />} />
           <Route path="/DoctorDashboard" element={<DoctorDashboard />} /> 
+          <Route path="/doctorinitial" element={<DoctorInitial />} /> 
           <Route path="/PatientInformation" element={<PatientInformation />} />
           <Route path="/Services" element={<Services/>} />
           <Route path="/mybooking" element={<MyBooking />} />

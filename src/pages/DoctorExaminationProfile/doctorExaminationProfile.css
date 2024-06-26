@@ -1,0 +1,34 @@
+.Docitems2{
+    background-color: rgb(255, 255, 255);
+    margin-top: 2rem;
+    flex-direction: column;
+    margin-left: 6rem;
+    cursor: pointer;
+    width: 210px;
+    height: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgb(223, 221, 221);
+}
+.ulitems2 li {
+    margin-top: 2rem;
+    cursor: pointer;
+    color: rgb(15, 15, 15);
+    font-size: 18px;
+    font-family: "Outfit";
+    /* margin-left: 1rem; */
+  }
+  
+  .ulitems2 li:hover {
+    color: rgb(67, 147, 167);
+  }
+  
+  .myaccount2 {
+    margin-top: 2rem;
+    font-family: "outfit";
+    font-weight: 400;
+    margin-left: 9rem;
+    font-size: 30px;
+    color: rgb(32, 32, 32) ;
+    margin-bottom: 1rem;
+}

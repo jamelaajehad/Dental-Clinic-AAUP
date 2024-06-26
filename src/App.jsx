@@ -17,6 +17,7 @@ import Clinics from "./pages/Clinic/clinics";
 import { UserProvider } from "./contexts/UserContext";
 import Initial from "./pages/InitialExamination/initialexamination";
 import PatientInformation from "./pages/PatientInformation/PatientInformation";
+import MyBooking from "./pages/MyBooking/mybooking";
 
 const App = () => {
   return (
@@ -36,10 +37,10 @@ const App = () => {
           <Route path="/initialexamination" element={<Initial />} />
           <Route path="/user" element={<UserProfile />} />
           <Route path="/admin/:activepage" element={<AdminPage />} />
-          <Route path="/DoctorDashboard" element={<DoctorDashboard />} />
           <Route path="/DoctorDashboard" element={<DoctorDashboard />} /> 
           <Route path="/PatientInformation" element={<PatientInformation />} />
           <Route path="/Services" element={<Services/>} />
+          <Route path="/mybooking" element={<MyBooking />} />
         </Routes>
       </Router>
     </UserProvider>

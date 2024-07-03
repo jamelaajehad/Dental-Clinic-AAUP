@@ -297,8 +297,6 @@ const PatientInformation = () => {
           const userDocRef = doc(firestore, "Patients", docSnapshot.id);
 
           await setDoc(userDocRef, {
-            patientName,
-            patientId,
             provisionalTreatmentPlan,
             fourthYear: asaIV,
             fifthYear: asaV,
@@ -334,7 +332,7 @@ const PatientInformation = () => {
   const treatmentConditions = [
     "Pediatric dentistry",
     "Preventive Treatments",
-    "Tooth extraction",
+    "Tooth extractions",
     "Dental surgery",
     "Dental implants",
     "Dental fillings",

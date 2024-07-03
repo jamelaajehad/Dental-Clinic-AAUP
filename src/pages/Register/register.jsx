@@ -448,7 +448,7 @@ const Register = () => {
   const [gender, setGender] = useState("");
   const [password, setPassword] = useState("");
   const [cpassword, setCpassword] = useState("");
-  const [isPrimaryExaminationDoctor, setIsPrimaryExaminationDoctor] = useState(false); // Default to false
+  const [isPrimaryExaminationDoctor, setIsPrimaryExaminationDoctor] = useState(false);
 
   const navigate = useNavigate();
   const auth = getAuth(app);
@@ -477,16 +477,11 @@ const Register = () => {
     }
 
     try {
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
       const collectionName = userType === "doctor" ? "Doctors" : "Patients";
 
-      // Construct the user data object
       const userData = {
         email: email,
         fullname: fullname,
@@ -503,9 +498,9 @@ const Register = () => {
       localStorage.setItem("userType", userType);
       await setDoc(doc(db, collectionName, user.uid), userData);
 
-      toast.success("Registration successful! Please log in.");
+      toast.success("Registration successful!");
       setTimeout(() => {
-        navigate("/LoginForm");
+        navigate("/");
       }, 2000);
     } catch (error) {
       toast.error(getErrorMessage(error.code));
@@ -515,7 +510,7 @@ const Register = () => {
   return (
     <div className="register">
       <ToastContainer />
-      <div className="signup-container">
+      <div className="signup-container" style={{ height: userType === "doctor" ? '600px' : '550px' }}>
         <form onSubmit={handleSubmit}>
           <h1>Registration</h1>
           <div className="firstrow">

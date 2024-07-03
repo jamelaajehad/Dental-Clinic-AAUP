@@ -16,8 +16,9 @@ const ClinicCard = ({ clinicData }) => {
       <div className="clinics-container">
         {clinicData.map((clinic, index) => (
           <div
-            data-aos="zoom-in"
-            data-aos-duration="2000"
+          data-aos="fade-down"
+          
+          data-aos-duration="1500"
             className="clinic-card"
             key={index}
           >

@@ -1,9 +1,9 @@
 
-// import { Link } from "react-router-dom";
+
 // import React, { useState } from "react";
 // import "./navbar.css";
 // import logo from "../../Asset/app-images/logo.png";
-// import { useNavigate } from "react-router-dom";
+// import { Link, useNavigate } from "react-router-dom";
 // import { FaUserCircle } from "react-icons/fa";
 // import { useUser } from "../../contexts/UserContext"; // Update the import to your correct path
 
@@ -15,8 +15,12 @@
 //   const handleUserProfileClick = () => {
 //     if (user) {
 //       if (user.userType === "doctor") {
-//         navigate("/DoctorDashboard");l
-//       } else {
+//         if (user.isPrimaryExaminationDoctor) {
+//           navigate("/doctorinitial");
+//         } else {
+//           navigate("/DoctorDashboard");
+//         }
+//       } else if (user.userType === "patient") {
 //         navigate("/user");
 //       }
 //     }
@@ -39,7 +43,7 @@
 //         </li>
 //         {user && user.userType === "patient" && (
 //           <li>
-//             <Link to="/mybooking"  >My Booking</Link>
+//             <Link to="/mybooking">My Booking</Link>
 //           </li>
 //         )}
 //         {user && user.userType === "doctor" && user.isPrimaryExaminationDoctor && (
@@ -128,7 +132,7 @@ const Navbar = () => {
         <div className="User-Profile" onClick={handleUserProfileClick}>
           <FaUserCircle className="user-icon" />
           <div className="profile-info">
-            <span>{user.additionalData.fullname}</span>
+            <span>{user.additionalData?.fullname || "User"}</span>
           </div>
         </div>
       ) : (
@@ -141,3 +145,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

@@ -46,7 +46,7 @@ const Doctor = () => {
                 {doctorsData.map((doctor, doctorIndex) => (
                     <div className="cards-doc" key={doctorIndex}>
                         <div className="card-image-container">
-                            <img src={doctor.image} alt="#" style={{ width: '95%', height: '55%' }} />
+                            <img src={doctor.image} alt="#" style={{ width: '95%', height: '55%' }} /> 
                         </div>
                         <p className="title1">{doctor.name}</p>
                         <p className="des1">{doctor.description}</p>

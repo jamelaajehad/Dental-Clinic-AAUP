@@ -3,7 +3,6 @@ import Navbar from "./components/Navbar/navbar";
 import Home from "./pages/home/home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoginForm1 from "./pages/Login/Login";
-import Doctor from "./pages/doctors/doctor";
 import ForgotPassword from "./pages/ForgetPassword/forget-comp";
 import Contact from "./pages/Contact/contact";
 import DoctorDetails from "./pages/Doctordeatails/ClinicsDetails";
@@ -19,7 +18,7 @@ import Initial from "./pages/InitialExamination/initialexamination";
 import PatientInformation from "./pages/PatientInformation/PatientInformation";
 import MyBooking from "./pages/MyBooking/mybooking";
 import DoctorInitial from "./pages/DoctorExaminationProfile/doctorExaminationProfile";
-
+import Messages from "./pages/Messages/Messages";
 const App = () => {
   return (
     <UserProvider>
@@ -30,7 +29,6 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/LoginForm" element={<LoginForm1 />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/doctor" element={<Doctor />} />
           <Route path="/doctors/:doctorIndex" element={<DoctorDetails />} />
           <Route path="/forget-comp" element={<ForgotPassword />} />
           <Route path="/clinics" element={<Clinics />} />
@@ -43,6 +41,7 @@ const App = () => {
           <Route path="/PatientInformation" element={<PatientInformation />} />
           <Route path="/Services" element={<Services/>} />
           <Route path="/mybooking" element={<MyBooking />} />
+          <Route path="/Messages" element={<Messages />} />
         </Routes>
       </Router>
     </UserProvider>

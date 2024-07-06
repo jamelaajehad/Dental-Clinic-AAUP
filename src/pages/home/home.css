@@ -169,7 +169,7 @@
    margin-top: 7rem;
    margin-left: 2rem;
    margin-right: 2rem; 
-   margin-bottom: 10rem; 
+   margin-bottom: 5rem; 
 }
 
 .cards-container2{
@@ -233,135 +233,9 @@ p span {
   text-align: left;
 }
 
-/* .cards {
-  display: flex;
-  flex-direction: row;
-  gap: 110px;
-  margin-left: 6rem;
-  margin-top: 3rem;
-  margin-right: 4.5rem;
-
+.fifth-container{
+ margin-bottom: 10rem;
+  margin-left:6rem;
+  margin-right: 3rem;
+ 
 }
-
-.cards .red {
-  border-radius: 1px;
-  background-image: url('../../Asset/app-images/pic.jpg');
-  background-position: center;
-  background-size: cover;
-  display: flex;
-
-}
-
-.cards .blue {
-  background-image: url('../../Asset/app-images/icon2.png');
-  border-radius: 3px;
-  background-position: center;
-  background-size: cover;
-  display: flex;
-}
-
-.cards .green {
-  background-image: url('../../Asset/app-images/icon3.jpg');
-  border-radius: 3px;
-  background-position: center;
-  background-size: cover;
-  display: flex;
-}
-
-.cards .card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  height: 200px;
-  width: 290px;
-  border-radius: 10px;
-  color: rgb(245, 245, 245);
-  cursor: pointer;
-  transition: 400ms;
-  font-family: "Sriracha";
-  border-color: #e1e2e2;
-}
-
-.cards .card p.tip {
-  font-size: 1.2em;
-  font-weight: 550;
-  margin-top: .5em;
-
-}
-
-
-
-.cards .card:hover {
-  transform: scale(1.1, 1.1);
-}
-
-.cards:hover>.card:not(:hover) {
-  filter: blur(10px);
-  transform: scale(0.9, 0.9);
-}
-
-
-
-
-.cards2 {
-  display: flex;
-  flex-direction: row;
-  gap: 130px;
-  margin-left: 16rem;
-  margin-top: 3rem;
-  margin-right: 7rem;
-  margin-bottom: 6rem;
-
-}
-
-.cards2 .red1 {
-  background-image: url('../../Asset/app-images/icon4.png');
-  background-size: cover;
-  background-position: center;
-  display: flex;
-}
-
-.cards2 .blue1 {
-  background-image: url('../../Asset/app-images/icon5.png');
-  background-size: cover;
-  background-position: center;
-  display: flex;
-}
-
-.cards2 .card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  height: 200px;
-  width: 290px;
-  border-radius: 10px;
-  color: rgb(226, 226, 226);
-  ;
-  cursor: pointer;
-  transition: 400ms;
-  font-family: "Sriracha";
-  border-color: #cdcfcf;
-}
-
-.cards2 .card p.tip1 {
-  font-size: 1.3em;
-  font-weight: 550;
-  font-family: "Sriracha";
-  margin-top: 3.3em;
-
-}
-
-
-
-.cards2 .card:hover {
-  transform: scale(1.1, 1.1);
-}
-
-.cards2:hover>.card:not(:hover) {
-  filter: blur(10px);
-  transform: scale(0.9, 0.9);
-} */

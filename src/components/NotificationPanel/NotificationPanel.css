@@ -1,0 +1,135 @@
+.notification-panel {
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    width: 370px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border-radius: 15px;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.panel-header h5 {
+    color: rgb(75, 137, 155);
+    font-family: "Sriracha", sans-serif;
+    padding-top: 10px;
+    margin-left: 10px;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #888;
+}
+
+.close-button:hover {
+    color: #555;
+}
+
+.panel-body {
+    padding: 10px;
+}
+
+.notification-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.notification-avatar {
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.notification-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.notification-content {
+    flex: 1;
+}
+
+.notification-title {
+    margin: 0;
+    font-weight: 700;
+    font-size: 14px;
+    font-family: "Sriracha", sans-serif;
+}
+
+.notification-text {
+    margin: 5px 0;
+    font-size: 13px;
+    font-family: "Sriracha", sans-serif;
+    font-weight: 100;
+    color: rgba(0, 0, 0, 0.599);
+}
+
+.notification-time {
+    color: #888;
+    font-size: 12px;
+    font-family: "Sriracha", sans-serif;
+}
+
+.notification-actions {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.accept-button,
+.reject-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.accept-button {
+    color: rgb(75, 137, 155);
+}
+
+.reject-button {
+    color: red;
+}
+
+.accept-button:hover,
+.reject-button:hover {
+    opacity: 0.8;
+}
+
+.delete-button {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 11px;
+    color: #888;
+}
+
+.delete-button:hover {
+    color: #555;
+}

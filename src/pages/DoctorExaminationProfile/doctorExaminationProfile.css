@@ -1,4 +1,4 @@
-.Docitems2{
+/*.Docitems2{
     background-color: rgb(255, 255, 255);
     margin-top: 2rem;
     flex-direction: column;
@@ -16,7 +16,7 @@
     color: rgb(15, 15, 15);
     font-size: 18px;
     font-family: "Outfit";
-    /* margin-left: 1rem; */
+    
   }
   
   .ulitems2 li:hover {
@@ -31,4 +31,308 @@
     font-size: 30px;
     color: rgb(32, 32, 32) ;
     margin-bottom: 1rem;
+}*/
+.doctor-dashboardex {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin-bottom: 6rem;
+  background-color: rgb(255, 255, 255);
+} 
+
+.doctor-containerex {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin-bottom: 7rem;
+}
+
+.myaccountex h4 {
+  margin-top: 1rem;
+  font-family: "outfit";
+  font-weight: 400;
+  font-size: 30px;
+  color: rgb(32, 32, 32);
+}
+
+.Docitemsex{
+  background-color: rgb(255, 255, 255);
+  padding: 12px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: "Outfit";
+}
+
+.ulitemsex {
+  display: flex;
+  justify-content: flex-end;
+  gap: 40px;
+  width: 70%;
+  padding-right: 20px;
+}
+
+.ulitemsex li {
+  margin-top: 2rem;
+  cursor: pointer;
+  color: rgb(15, 15, 15);
+  font-size: 18px;
+  list-style: none;
+  margin-left: 1rem;
+}
+
+.ulitemsex li:hover {
+  color: rgb(67, 147, 167);
+}
+
+.section-contentex {
+  flex-grow: 1;
+  margin-top: 20px;
+}  
+
+.table-containerex {
+  margin-top: 10px;
+}
+
+.table-containerex h3 {
+  margin-top: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 360;
+}
+
+.table-containerex table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-containerex th,
+.table-containerex td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  font-family: "Montserrat", sans-serif;
+} 
+
+.table-containerex th {
+  background-color: rgb(67, 147, 167);
+  color: white;
+}
+
+.button3 {
+  padding: 12px 23px;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid var(--main-color);
+  border-radius: 5px;
+  color: rgb(32, 32, 32);
+  cursor: pointer;
+  margin-right: 7px;
+} 
+
+.button3:hover {
+  background-color: rgb(238, 241, 241);
+}
+
+.form-containerex {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+} 
+
+.form-containerex h3 {
+  margin-bottom: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 360;
+}
+
+.form-containerex label {
+  display: block;
+  
+  margin-bottom: 10px;
+} 
+
+.form-containerex input[type="text"],
+.form-containerex input[type="email"],
+.form-containerex input[type="password"],
+.form-containerex input[type="tel"],
+.form-containerex input[type="file"],
+.form-containerex select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.rdp-button3:not([disabled]) {
+  font-size: small;
+  padding: 4px;
+}
+
+.container-doctorex {
+  display: flex;
+}
+
+.sidebarex {
+  width: 250px;
+  background-color: #096590;
+  padding: 20px;
+  color: white;
+  height: 100vh;
+}
+
+.sidebarex h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.contentex{
+  flex-grow: 1;
+  padding: 20px;
+}
+
+@keyframes gradientAnimation3 {
+  0% {
+    background-position: 0% 50%;
+  } 
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  } 
+} 
+
+.headerex {
+  border-bottom: 2px solid #4393a7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-size: 600% 600%;
+  animation: gradientAnimation3 10s ease-in-out infinite;
+  color: rgb(55, 55, 55);
+}
+
+.headerex h1 {
+  margin: 0;
+  font-weight: 300;
+  font-family: "Montserrat", sans-serif;
+}
+
+.filter-barex {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  background-color: #4393a7;
+  border-radius: 100px;
+}
+
+.filter-barex button {
+  background-color: #4393a7;
+  color: #eeeeee;
+  width: 100%;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 100px;
+}
+
+.filter-barex button.active {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #9dc0d1;
+  color: #4393a7;
+  font-weight: 500;
+  border-radius: 100px;
+}
+
+.patient-listex {
+  margin-top: 20px;
+}
+
+.patient-itemex {
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 5px solid;
+  border-color: rgb(8, 107, 154);
+}
+ 
+.patient-infoex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.patient-infoex img {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.patient-detailsex {
+  display: flex;
+}
+
+.patient-timeex {
+  display: flex;
+  align-items: center;
+}
+
+.patient-timeex button {
+  width: 70px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 4px;
+  background-color: #a5c4cd;
+  color: white;
+  font-weight: '500';
+  margin-left: 4px;
+} 
+
+.patient-timeex button:hover {
+  background-color: #4393a7;
+}
+
+.patient-timeex p {
+  margin-right: 10px;
+}
+
+
+
+.rdp-month3:last-child {
+  margin-right: 0;
+  width: 100%;
+}
+
+.rdp3 {
+  --rdp-cell-size: initial;
+}
+
+.rdp-caption_label3,
+.rdp-head_cell3 {
+  font-weight: normal;
+}
+
+.social-media-icons3 {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 8px;
+}
+
+.social-media-icons3 a {
+  color: #333;
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+.social-media-icons3 a:hover {
+  color: #0077b5;
 }

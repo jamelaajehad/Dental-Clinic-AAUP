@@ -196,7 +196,8 @@ import filling from "../../Asset/app-images/filling.png";
 import extraction from "../../Asset/app-images/extraction.png";
 import { firestore } from "../../firebase";
 import { doc, getDoc } from "firebase/firestore";
-import { useUser } from "../../contexts/UserContext"; // Ensure correct path
+import { useUser } from "../../contexts/UserContext"; 
+import DoctorCarousel from "../../components/DoctorCarousel/DoctorCarousel";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -354,6 +355,9 @@ const Home = () => {
         <div className="cards-container2">
           {renderCards(fourthContainerCards, "cardSecFourth", "card-icon-fourth", "card-content-fourth", "cardpFourth")}
         </div>
+      </div>
+      <div className="fifth-container">
+        <DoctorCarousel />
       </div>
       <Footer />
     </div>

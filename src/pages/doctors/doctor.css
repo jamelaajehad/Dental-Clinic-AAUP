@@ -1,9 +1,10 @@
-/* .main {
- background-color:rgb(252, 252, 252) ; */
+.main {
+ background-color:rgb(252, 252, 252) ; 
  
  
-/* } */
-/*.backgroundDoc {
+ } 
+
+/* .backgroundDoc {
   font-family: "outfit", sans-serif;
     scroll-behavior:smooth ;
     background-size: cover;
@@ -15,9 +16,9 @@
     display :flex;
     width: 100%;
  
-}*/
+}
 
-/* .doctors {
+ .doctors {
   margin-top: 4rem;
   margin-left: 5.2rem;
   margin-right:1rem;
@@ -116,4 +117,4 @@
 .button1:hover {
   background-color: rgb(252, 252, 252);
   
-} */
+}  */

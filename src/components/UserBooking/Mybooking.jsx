@@ -51,7 +51,7 @@ const MyBookings = () => {
       <div className="bookings-list">
         {bookings.length > 0 ? (
           bookings.map((booking) => (
-            <div key={booking.id} className="booking-card">
+            <div key={booking.id} className="booking-card1">
               <p><strong>Date:</strong> {booking.day}</p>
               <p><strong>Time:</strong> {booking.time}</p>
             </div>

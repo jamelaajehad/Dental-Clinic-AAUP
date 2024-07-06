@@ -349,6 +349,7 @@
   flex-direction: column;
   padding: 20px;
   margin-bottom: 7rem;
+  margin-left: 3rem;
 }
 
 .myaccount13 h4 {
@@ -450,6 +451,7 @@
 
 .form-container3 label {
   display: block;
+  
   margin-bottom: 10px;
 } 
 
@@ -573,6 +575,13 @@
   justify-content: space-between;
   width: 100%;
 }
+.patient-info3 p {
+  color: #333;
+  font-size: 17px;
+  font-weight: 500;
+  margin: 5px 0;
+  font-family: 'Tajawal', sans-serif; /* مثال لاستخدام خط مخصص */
+}
 
 .patient-info3 img {
   border-radius: 50%;
@@ -583,6 +592,15 @@
   display: flex;
 }
 
+
+.form-container3 label {
+  color: #333;
+  font-size: 18px;
+  font-weight: 440;
+  margin: 10px 0;
+  display: block;
+  font-family: "Montserrat"; 
+}
 .patient-time3 {
   display: flex;
   align-items: center;
@@ -605,23 +623,6 @@
 
 .patient-time3 p {
   margin-right: 10px;
-}
-
-.dayPickerContainer13 {
-  border: 1px solid rgb(230, 230, 230);
-  width: 100%;
-  border-radius: 21px;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
-  font-family: "outfit";
-} 
-
-.calendar3 {
-  margin-top: 20px;
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 300px;
 }
 
 .rdp-month3:last-child {
@@ -653,4 +654,47 @@
 
 .social-media-icons3 a:hover {
   color: #0077b5;
+}
+
+.Modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  max-width: 90%;
+  max-height: 80%;
+  overflow-y: auto;
+  width: 700px;
+  height: 500px;
+}
+
+.close-button {
+  background-color: #4393a7;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+.close-button:hover {
+  background-color: #367a8e;
+}
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

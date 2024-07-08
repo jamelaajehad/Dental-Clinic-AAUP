@@ -198,6 +198,8 @@ import { firestore } from "../../firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { useUser } from "../../contexts/UserContext"; 
 import DoctorCarousel from "../../components/DoctorCarousel/DoctorCarousel";
+import InteractiveMap from "../../components/InteractiveMap/InteractiveMap"; // Import the interactive map component
+
 
 const Home = () => {
   const navigate = useNavigate();
@@ -359,6 +361,9 @@ const Home = () => {
       <div className="fifth-container">
         <DoctorCarousel />
       </div>
+      <div className="map-container"  data-aos="fade-up" data-aos-duration="2000">
+        <InteractiveMap />
+      </div> 
       <Footer />
     </div>
   );

@@ -46,7 +46,7 @@ const UserProfile = () => {
         <h1 align="center">User Profile</h1>
       </div>
       <div className="Userprofile">
-        <h4 className="myaccount">My Account</h4>
+       
         <div className="user-container">
           <div className="items1">
             <div className="profile-picture-container">

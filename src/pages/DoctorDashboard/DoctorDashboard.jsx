@@ -546,7 +546,6 @@
 
 import React, { useEffect, useState } from 'react';
 import './DoctorDashboard.css';
-import mybooking from '../../Asset/app-images/mybooking.png';
 import setting from '../../Asset/app-images/setting.png';
 import logout from '../../Asset/app-images/logout.png';
 import manage from '../../Asset/app-images/manage.png';
@@ -563,6 +562,12 @@ import {
   FaInstagram,
   FaLinkedin,
   FaArrowRight,
+  FaUser,
+  FaPhone,
+  FaVenusMars,
+  FaTooth,
+  FaHeartbeat,
+  FaClipboardList,
 } from 'react-icons/fa';
 import { toast, ToastContainer } from "react-toastify";
 import { parse } from 'date-fns';
@@ -821,15 +826,15 @@ const DoctorDashboard = () => {
                         Adult
                       </button>
                       <button
-                        className={activeButton === 'Pediatric' ? 'active' : ''}
-                        onClick={() => handleButtonClick('Pediatric')}
+                        className={activeButton === 'Paediatric ' ? 'active' : ''}
+                        onClick={() => handleButtonClick('Paediatric ')}
                       >
-                        Pediatric
+                        Paediatric
                       </button>
                     </div>
                     <div
                       className="patient-list3"
-                      style={{ fontFamily: 'tajawal', fontSize: '15px' }}
+                      style={{ fontFamily: 'tajawal', fontSize: '18px' }}
                     >
                       {patientData.length === 0 ? (
                         <p
@@ -837,7 +842,7 @@ const DoctorDashboard = () => {
                             textAlign: 'center',
                             color: '#6a6a6a',
                             fontWeight: '400',
-                            fontSize: '20px',
+                            fontSize: '22px',
                           }}
                         >
                           No patient for today
@@ -854,13 +859,16 @@ const DoctorDashboard = () => {
                                       display: 'flex',
                                       flexDirection: 'column',
                                       justifyContent: 'center',
+                                
                                     }}
                                   >
                                     <p
                                       style={{
-                                        color: '#6a6a6a',
+                                        color: '#111111',
                                         fontWeight: '500',
                                         marginBottom: '0px',
+                                        fontSize:'22px',
+                                        fontFamily :'Tajawal' ,
                                       }}
                                     >
                                       {patient.patientName}
@@ -920,8 +928,8 @@ const DoctorDashboard = () => {
                 >
                   <img
                     style={{
-                      width: '100%',
-                      height: '400px',
+                      width: '90%',
+                      height: '300px',
                       objectFit: 'cover',
                       borderRadius: '12px',
                       border: '2px solid #e1e1e1',
@@ -936,10 +944,10 @@ const DoctorDashboard = () => {
                     </h3>
                     {user && (
                       <>
-                        <p style={{ margin: '4px ', fontFamily: 'tajawal', fontSize: '15px', fontStyle: 'italic' }}>
+                        <p style={{ margin: '4px ', fontFamily: 'tajawal', fontSize: '17px', fontStyle: 'italic' }}>
                           Email: {user.email}
                         </p>
-                        <p style={{ margin: '4px ', fontFamily: 'tajawal', fontSize: '15px', fontStyle: 'italic' }}>
+                        <p style={{ margin: '3px ', fontFamily: 'tajawal', fontSize: '17px', fontStyle: 'italic' }}>
                           Phone: {doctorPhone}
                         </p>
                       </>
@@ -1065,26 +1073,6 @@ const DoctorDashboard = () => {
                       }}
                     />
                   </label>
-                  <label
-                    style={{
-                      marginTop: '0px',
-                      marginBottom: '0px',
-                    }}
-                  >
-                    Notification Preferences:
-                    <select
-                      name="notificationPreferences"
-                      style={{
-                        borderRadius: '10px',
-                        border: '1px solid #e0e0e0',
-                        marginTop: '4px',
-                      }}
-                    >
-                      <option value="email">Email</option>
-                      <option value="sms">SMS</option>
-                      <option value="none">None</option>
-                    </select>
-                  </label>
                   <li onClick={handleDeleteAccount} style={{ color: 'red' }}>
                     Delete Account
                   </li>
@@ -1117,37 +1105,47 @@ const DoctorDashboard = () => {
         className="Modal"
         overlayClassName="Overlay"
       >
-        {selectedPatient && (
-          <div>
-            <h2>Patient Details</h2>
-            <div style={{ marginBottom: '10px' }}>
-              <strong>Full Name:</strong> {selectedPatient.fullname}
-            </div>
-            <div style={{ marginBottom: '10px' }}>
-              <strong>Phone Number:</strong> {selectedPatient.phoneNumber}
-            </div>
-            <div style={{ marginBottom: '10px' }}>
-              <strong>Gender:</strong> {selectedPatient.gender}
-            </div>
-            <div style={{ marginBottom: '10px' }}>
-              <strong>Dental History:</strong>
-              {renderPatientDetails(selectedPatient.dentalHistory)}
-            </div>
-            <div style={{ marginBottom: '10px' }}>
-              <strong>Medical History:</strong>
-              {renderPatientDetails(selectedPatient.medicalHistory)}
-            </div>
-            <div style={{ marginBottom: '10px' }}>
-              <strong>Required Treatment Condition:</strong> {selectedPatient.requiredTreatmentCondition}
-            </div>
-           
-            <button className="close-button"  onClick={closeModal} style={{ marginTop: '20px' }}>Close</button>
-          </div>
-        )}
-      </Modal>
-      <ToastContainer />
+       {selectedPatient && (
+  <div className="Patient-Details" style={{ fontFamily: 'Sriracha' }}>
+    <h3>Patient Details:</h3>
+    <div style={{ marginTop: '7px', display: 'flex', alignItems: 'center', marginBottom: '1rem', fontFamily: 'Outfit, sans-serif', fontSize: '17px' }}>
+      <FaUser style={{ marginRight: '8px', color: '#4393a7' }} />
+      <strong>Full Name: </strong> {selectedPatient.fullname}
+      <FaPhone style={{ marginLeft: '30px', marginRight: '8px', color: '#4393a7' }} />
+      <strong>Phone Number:</strong> {selectedPatient.phoneNumber}
+      <FaVenusMars style={{ marginLeft: '30px', marginRight: '8px', color: '#4393a7' }} />
+      <strong>Gender:</strong> {selectedPatient.gender}
+    </div>
+    
+    <div style={{ marginBottom: '15px', fontFamily: 'Outfit, sans-serif', fontSize: '17px' }}>
+      <FaTooth style={{ marginRight: '10px', color: '#4393a7' }} />
+      <strong>Dental History:</strong>
+      <div style={{ display: 'flex', flexDirection: 'column', marginLeft: '30px', paddingRight: '15px' }}>
+        {renderPatientDetails(selectedPatient.dentalHistory)}
+      </div>
+    </div>
+    <div style={{ marginBottom: '15px', fontFamily: 'Outfit, sans-serif', fontSize: '17px' }}>
+      <FaHeartbeat style={{ marginRight: '10px', color: '#4393a7' }} />
+      <strong>Medical History:</strong>
+      <div style={{ display: 'flex', flexDirection: 'column', marginLeft: '30px', paddingRight: '15px' }}>
+        {renderPatientDetails(selectedPatient.medicalHistory)}
+      </div>
+    </div>
+    <div style={{ marginBottom: '10px', fontFamily: 'Outfit, sans-serif', fontSize: '17px' }}>
+      <FaClipboardList style={{ marginRight: '10px', color: '#4393a7' }} />
+      <strong>Required Treatment Condition:</strong> {selectedPatient.requiredTreatmentCondition}
+    </div>
+    <button className="close-button" onClick={closeModal} style={{ marginTop: '20px' }}>Close</button>
+  </div>
+)}
+
+ </Modal>
+   <ToastContainer />
     </div>
   );
 };
 
 export default DoctorDashboard;
+
+
+    

@@ -1,4 +1,4 @@
-.footer-container2{ 
+/* .footer-container2{ 
     background-color:rgb(72, 120, 133)   ; 
     flex-direction: row !important;
     display: flex; 
@@ -94,4 +94,136 @@
 .divider {
     color: #fffefe; 
     
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+.footer-container {
+  background-color: #487885;
+  padding: 40px 20px;
+  text-align: center;
+  border-top: 2px solid #487885;
 }
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #ffffff;
+}
+
+.title-text {
+  font-family : "Della Respira", serif;
+  font-size: 2em;
+  
+  margin-bottom: 30px;
+  color: #fafafa;
+}
+
+.column-heading {
+  font-family: 'Abril Fatface', sans-serif;
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #f4f4f5;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.column-text {
+  font-family: 'Abril Fatface', sans-serif;
+  font-size: .9em;
+  line-height: 2.;
+  color: #dee2e6;
+}
+
+.footer-columns {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 250px;
+  margin: 15px;
+  text-align: left;
+}
+
+.footer-section {
+  display: flex;
+  align-items: flex-start;
+  margin: 10px 0;
+}
+
+.icon {
+  margin-right: 10px;
+  color: #dee2e6;
+  font-size: 1.5em;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.link {
+  margin: 5px 0;
+  color: #dee2e6;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 15px;
+}
+
+.social-link {
+  margin-right: 15px;
+  color: #dee2e6;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+
+.social-link:hover {
+  color: #fff;
+}
+
+.divider {
+  border-top: 1px solid #487885;
+  margin: 30px 0;
+}
+
+.footer-below p {
+  margin: 0;
+  color: #c0c0c0;
+  font-size: 0.9em;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #487885;
+  color: #fff;
+  padding: 10px;
+  border-radius: 30%;
+  cursor: pointer;
+  display: none;
+  font-size: 1.5em;
+}
+
+.back-to-top.visible {
+  display: block;
+}
+
+.back-to-top:hover {
+  background-color: #365f6a;
+} 

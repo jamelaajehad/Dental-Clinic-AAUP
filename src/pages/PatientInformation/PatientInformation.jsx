@@ -230,6 +230,7 @@
 // };
 
 // export default PatientInformation;
+
 import './PatientInformation.css';
 import { useState } from 'react';
 import Footer from "../../components/Footer/footer";
@@ -238,9 +239,7 @@ import { doc, setDoc, getDocs, collection, query, where } from "firebase/firesto
 import { firestore } from '../../firebase'; // Ensure this path is correct
 
 const PatientInformation = () => {
-  const [patientName, setPatientName] = useState('');
   const [patientId, setPatientId] = useState('');
-  const [fileNumber, setFileNumber] = useState('');
   const [provisionalTreatmentPlan, setProvisionalTreatmentPlan] = useState('');
   const [doctorSignature, setDoctorSignature] = useState('');
   const [asaIV, setAsaIV] = useState({
@@ -265,6 +264,7 @@ const PatientInformation = () => {
   });
   const [requiredTreatmentCondition, setRequiredTreatmentCondition] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
+  const [patientData, setPatientData] = useState(null);
   const navigate = useNavigate();
 
   const handleCheckboxChange = (year, field) => {
@@ -275,44 +275,42 @@ const PatientInformation = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setCurrentPage(2);
+    try {
+      const patientsCollectionRef = collection(firestore, "Patients");
+      const q = query(patientsCollectionRef, where("idNumber", "==", patientId));
+      const querySnapshot = await getDocs(q);
+
+      if (!querySnapshot.empty) {
+        const patientDoc = querySnapshot.docs[0];
+        setPatientData(patientDoc.data());
+        setCurrentPage(2);
+      } else {
+        alert('No user found with the entered Patient ID!');
+      }
+    } catch (error) {
+      console.error("Error fetching patient data: ", error);
+      alert('Error fetching patient data!');
+    }
   };
 
   const handleSave = async () => {
     try {
-      console.log('Saving form data...');
+      if (patientData) {
+        const userDocRef = doc(firestore, "Patients", patientData.idNumber);
 
-      // Fetch all user documents from the Patients collection
-      const patientsCollectionRef = collection(firestore, "Patients");
-      const patientDocs = await getDocs(patientsCollectionRef);
+        await setDoc(userDocRef, {
+          provisionalTreatmentPlan,
+          fourthYear: asaIV,
+          fifthYear: asaV,
+          doctorSignature,
+          requiredTreatmentCondition // Include requiredTreatmentCondition in Firestore data
+        }, { merge: true });
 
-      let matchFound = false;
-
-      // Use for...of loop to iterate synchronously
-      for (const docSnapshot of patientDocs.docs) {
-        const userData = docSnapshot.data();
-        if (userData.idNumber === patientId) { // Compare the stored ID Number with entered patient ID
-          const userDocRef = doc(firestore, "Patients", docSnapshot.id);
-
-          await setDoc(userDocRef, {
-            provisionalTreatmentPlan,
-            fourthYear: asaIV,
-            fifthYear: asaV,
-            doctorSignature,
-            requiredTreatmentCondition // Include requiredTreatmentCondition in Firestore data
-          }, { merge: true });
-
-          matchFound = true;
-          alert('Form data saved successfully!');
-          // Redirect to MyBooking page with patientId
-          break; // Exit the loop since match is found
-        }
-      }
-
-      if (!matchFound) {
-        alert('No user found with the entered Patient ID!');
+        alert('Form data saved successfully!');
+      } else {
+        alert('No patient data to save!');
       }
     } catch (error) {
       console.error("Error saving form data: ", error);
@@ -355,16 +353,6 @@ const PatientInformation = () => {
             <h3 className="form-title">Patient Information</h3>
             <form onSubmit={handleSubmit} className="form">
               <div className="form-group">
-                <label className="form-label">Patient Name:</label>
-                <input
-                  type="text"
-                  className="form-input"
-                  value={patientName}
-                  onChange={(e) => setPatientName(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="form-group">
                 <label className="form-label">Patient ID:</label>
                 <input
                   type="text"
@@ -374,6 +362,80 @@ const PatientInformation = () => {
                   required
                 />
               </div>
+              <button type="submit" className="form-button">Search</button>
+            </form>
+          </div>
+        )}
+
+        {currentPage === 2 && patientData && (
+          <div className="home-sections">
+            <div className="form-container">
+              <h3 className="form-title">Patient Information</h3>
+              <div className="form-group">
+                <label className="form-label">Patient Name:</label>
+                <input
+                  type="text"
+                  className="form-input"
+                  value={patientData.fullname}
+                  readOnly
+                />
+              </div>
+              <div className="form-group">
+                <label className="form-label">Gender:</label>
+                <input
+                  type="text"
+                  className="form-input"
+                  value={patientData.gender}
+                  readOnly
+                />
+              </div>
+              <div className="form-group">
+                <label className="form-label">Medical History:</label>
+                <div className="form-textarea">
+                  {Object.entries(patientData.medicalHistory).map(([key, value]) => (
+                    <div key={key}>
+                      <strong>{key}:</strong> {value.toString()}
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="form-group">
+                <label className="form-label">Dental History:</label>
+                <div className="form-textarea">
+                  {Object.entries(patientData.dentalHistory).map(([key, value]) => (
+                    <div key={key}>
+                      <strong>{key}:</strong> {value.toString()}
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="form-group">
+                <label className="form-label">Patient Type:</label>
+                <input
+                  type="text"
+                  className="form-input"
+                  value={patientData.patientType}
+                  readOnly
+                />
+              </div>
+              <div className="form-group">
+                <label className="form-label">Phone Number:</label>
+                <input
+                  type="text"
+                  className="form-input"
+                  value={patientData.phoneNumber}
+                  readOnly
+                />
+              </div>
+              <button type="button" className="form-button" onClick={() => setCurrentPage(3)}>Continue</button>
+            </div>
+          </div>
+        )}
+
+        {currentPage === 3 && (
+          <div className="home-sections">
+            <div className="form-container">
+              <h3 className="form-title">Treatment Information</h3>
               <div className="form-group">
                 <label className="form-label">Provisional Treatment Plan:</label>
                 <textarea
@@ -384,71 +446,65 @@ const PatientInformation = () => {
                   required
                 />
               </div>
-              <button type="submit" className="form-button">Continue</button>
-            </form>
-          </div>
-        )}
-
-        {currentPage === 2 && (
-          <div className="home-sections">
-            <div className="asa-section1">
-              <h4 className="asa-title">ASA I (Fourth Year)</h4>
-              <div className="asa-list-horizontal">
-                {Object.keys(asaIV).map(field => (
-                  <div key={field} className="checkbox-item">
-                    <input
-                      type="checkbox"
-                      checked={asaIV[field]}
-                      onChange={() => handleCheckboxChange('IV', field)}
-                    />
-                    <label>{field}</label>
-                  </div>
-                ))}
-              </div>
-
-              <h4 className="asa-title2">ASA II (Fifth Year)</h4>
-              <div className="asa-list-horizontal">
-                {Object.keys(asaV).map(field => (
-                  <div key={field} className="checkbox-item">
-                    <input
-                      type="checkbox"
-                      checked={asaV[field]}
-                      onChange={() => handleCheckboxChange('V', field)}
-                    />
-                    <label>{field}</label>
-                  </div>
-                ))}
-              </div>
-
-              <div className="required-treatment">
-                <label className="form-label">Required Treatment Condition:</label>
-                <select
-                  value={requiredTreatmentCondition}
-                  onChange={(e) => setRequiredTreatmentCondition(e.target.value)}
-                  className="form-input"
-                  required
-                >
-                  <option value="">Select treatment condition</option>
-                  {treatmentConditions.map(condition => (
-                    <option key={condition} value={condition}>{condition}</option>
+              <div className="asa-section1">
+                <h4 className="asa-title">ASA I (Fourth Year)</h4>
+                <div className="asa-list-horizontal">
+                  {Object.keys(asaIV).map(field => (
+                    <div key={field} className="checkbox-item">
+                      <input
+                        type="checkbox"
+                        checked={asaIV[field]}
+                        onChange={() => handleCheckboxChange('IV', field)}
+                      />
+                      <label>{field}</label>
+                    </div>
                   ))}
-                </select>
+                </div>
+
+                <h4 className="asa-title2">ASA II (Fifth Year)</h4>
+                <div className="asa-list-horizontal">
+                  {Object.keys(asaV).map(field => (
+                    <div key={field} className="checkbox-item">
+                      <input
+                        type="checkbox"
+                        checked={asaV[field]}
+                        onChange={() => handleCheckboxChange('V', field)}
+                      />
+                      <label>{field}</label>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="required-treatment">
+                  <label className="form-label">Required Treatment Condition:</label>
+                  <select
+                    value={requiredTreatmentCondition}
+                    onChange={(e) => setRequiredTreatmentCondition(e.target.value)}
+                    className="form-input"
+                    required
+                  >
+                    <option value="">Select treatment condition</option>
+                    {treatmentConditions.map(condition => (
+                      <option key={condition} value={condition}>{condition}</option>
+                    ))}
+                  </select>
+                </div>
               </div>
-            </div>
-            <div className="signature-box">
-              <label className="signature-label">Doctor Signature:</label>
-              <input
-                type="text"
-                className="signature-input"
-                value={doctorSignature}
-                onChange={(e) => setDoctorSignature(e.target.value)}
-                placeholder="Enter your signature here"
-                required
-              />
-            </div>
-            <div>
-              <button type="button" className="back-button" onClick={handleBack}>Back</button>
-              <button onClick={handleSave} className="save-button">Save</button>
+              <div className="signature-box">
+                <label className="signature-label">Doctor Signature:</label>
+                <input
+                  type="text"
+                  className="signature-input"
+                  value={doctorSignature}
+                  onChange={(e) => setDoctorSignature(e.target.value)}
+                  placeholder="Enter your signature here"
+                  required
+                />
+              </div>
+              <div>
+                <button type="button" className="back-button" onClick={handleBack}>Back</button>
+                <button onClick={handleSave} className="save-button">Save</button>
+              </div>
             </div>
           </div>
         )}
@@ -459,6 +515,4 @@ const PatientInformation = () => {
 };
 
 export default PatientInformation;
-
-
-
+ 

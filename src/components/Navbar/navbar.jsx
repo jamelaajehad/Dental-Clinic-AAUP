@@ -196,7 +196,7 @@ const Navbar = () => {
               src={
                 userAvatar
                   ? userAvatar
-                  : "https://firebasestorage.googleapis.com/v0/b/dental-aaup.appspot.com/o/default.jpg?alt=media&token=cf0548b6-f7cb-410d-bd1d-f17a83b541d7"
+                  : " https://static.vecteezy.com/system/resources/previews/018/765/757/original/user-profile-icon-in-flat-style-member-avatar-illustration-on-isolated-background-human-permission-sign-business-concept-vector.jpg"
               }
               alt="User Avatar"
               className="user-avatar"

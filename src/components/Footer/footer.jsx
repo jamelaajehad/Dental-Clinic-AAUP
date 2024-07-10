@@ -74,7 +74,7 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-content">
           <div className="footer-title">
-            <h1 className="title-text">DENTAL CLINIC AAUP</h1>
+            {/* <h1 className="title-text">DENTAL CLINIC AAUP</h1> */}
           </div>
           <div className="footer-columns">
             <div className="footer-column">

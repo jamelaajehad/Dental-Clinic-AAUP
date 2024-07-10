@@ -3,7 +3,7 @@ import './AdminPage.css';
 
 const Dashboard = () => (
   <div>
-    <h1>Dashboard</h1>
+    <h2>Dashboard</h2>
     <p>Welcome to the admin dashboard. Here you can find a summary of your system's key metrics.</p>
     <div className="dashboard-widgets">
       <div className="widget">
@@ -24,8 +24,8 @@ const Dashboard = () => (
 
 const ManageUsers = () => (
   <div>
-    <h1>Manage Users</h1>
-    <p>Here you can create, edit, or delete user accounts.</p>
+    <h2>Manage Patients</h2>
+    <p>Here you can create, edit, or delete patient accounts.</p>
     <table>
       <thead>
         <tr>
@@ -62,7 +62,7 @@ const ManageUsers = () => (
 
 const ManageDoctors = () => (
   <div>
-    <h1>Manage Doctors</h1>
+    <h2>Manage Doctors</h2>
     <p>Here you can create, edit, or delete doctor profiles.</p>
     <table>
       <thead>
@@ -130,36 +130,36 @@ const ManageContent = () => (
   </div>
 );
 
-const Settings = () => (
-  <div>
-    <h1>Settings</h1>
-    <p>Configure your system settings here.</p>
-    <form className='setting'>
-      <label>
-        Site Name:
-        <input type="text" defaultValue="My Website" />
-      </label>
-      <label>
-        Admin Email:
-        <input type="email" defaultValue="admin@example.com" />
-      </label>
-      <button type="submit" className="action-btn">Save Settings</button>
-    </form>
-  </div>
-);
+// const Settings = () => (
+//   <div>
+//     <h1>Settings</h1>
+//     <p>Configure your system settings here.</p>
+//     <form className='setting'>
+//       <label>
+//         Site Name:
+//         <input type="text" defaultValue="My Website" />
+//       </label>
+//       <label>
+//         Admin Email:
+//         <input type="email" defaultValue="admin@example.com" />
+//       </label>
+//       <button type="submit" className="action-btn">Save Settings</button>
+//     </form>
+//   </div>
+// );
 
-const ActivityLog = () => (
-  <div>
-    <h1>Activity Log</h1>
-    <p>View the recent activities performed in the system.</p>
-    <ul>
-      <li>User "john_doe" logged in at 10:00 AM</li>
-      <li>User "jane_doe" created a new appointment at 10:15 AM</li>
-      <li>User "admin" updated system settings at 10:30 AM</li>
-      {/* Add more log items here */}
-    </ul>
-  </div>
-);
+// const ActivityLog = () => (
+//   <div>
+//     <h1>Activity Log</h1>
+//     <p>View the recent activities performed in the system.</p>
+//     <ul>
+//       <li>User "john_doe" logged in at 10:00 AM</li>
+//       <li>User "jane_doe" created a new appointment at 10:15 AM</li>
+//       <li>User "admin" updated system settings at 10:30 AM</li>
+//       {/* Add more log items here */}
+//     </ul>
+//   </div>
+// );
 
 const SystemNotifications = () => (
   <div>
@@ -181,16 +181,10 @@ const AdminPage = () => {
     switch (activeComponent) {
       case 'Dashboard':
         return <Dashboard />;
-      case 'ManageUsers':
+      case 'ManagePatients':
         return <ManageUsers />;
       case 'ManageDoctors':
         return <ManageDoctors />;
-      case 'ManageContent':
-        return <ManageContent />;
-      case 'Settings':
-        return <Settings />;
-      case 'ActivityLog':
-        return <ActivityLog />;
       case 'SystemNotifications':
         return <SystemNotifications />;
       default:
@@ -204,11 +198,8 @@ const AdminPage = () => {
         <h2>Admin Panel</h2>
         <ul>
           <li><button onClick={() => setActiveComponent('Dashboard')}>Dashboard</button></li>
-          <li><button onClick={() => setActiveComponent('ManageUsers')}>Manage Users</button></li>
+          <li><button onClick={() => setActiveComponent('ManagePatients')}>Manage Patients</button></li>
           <li><button onClick={() => setActiveComponent('ManageDoctors')}>Manage Doctors</button></li>
-          <li><button onClick={() => setActiveComponent('ManageContent')}>Manage Content</button></li>
-          <li><button onClick={() => setActiveComponent('Settings')}>Settings</button></li>
-          <li><button onClick={() => setActiveComponent('ActivityLog')}>Activity Log</button></li>
           <li><button onClick={() => setActiveComponent('SystemNotifications')}>System Notifications</button></li>
         </ul>
       </div>

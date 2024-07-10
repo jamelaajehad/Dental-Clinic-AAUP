@@ -3,10 +3,10 @@
     flex-direction: column;
     padding: 20px;
     margin-bottom: 4rem;
-    background-color: rgb(253, 253, 253);
+    background-color: rgb(255, 255, 255);
   }
- .profileimage{
-    background-image:  url('../../Asset/app-images/inter1.jpg'); 
+ /* .profileimage{
+    background-image:  url('../../Asset/app-images/img-profile.png'); 
     scroll-behavior:smooth ;
     background-size: cover;
     background-repeat: no-repeat;
@@ -15,10 +15,10 @@
     height: 70vh;
     display :flex;
     width: 100%;
-}
+} */ 
 .profileimage h1{
    align-items: center;
-   margin-top: 10rem;
+   margin-top: 4rem;
    color: rgb(252, 252, 255)   ; 
    line-height:6rem ;
    margin-left: 35rem;
@@ -53,14 +53,14 @@
 
   .items1 {
     background-color: rgb(255, 255, 255);
-    margin-top: 1rem;
+    margin-top: 2rem;
     flex-direction: column;
     margin-left: 10rem;
     cursor: pointer;
-    width: 215px;
-    height: 380px;
-    border-radius:10px;
-    box-shadow: 0px 0px 15px 0px rgba(24, 24, 24, 0.1);
+    width: 219px;
+    height:450px;
+    border-radius:13px;
+    box-shadow: 0px 4px 20px rgba(24, 24, 24, 0.2);
     border: 1px solid rgb(216, 216, 216) ; 
   }
    
@@ -84,4 +84,9 @@
     flex-grow: 1; 
     margin-top: 20px;
   } 
-  
+  .user-info h4 {
+    margin-left: 3.4rem;
+    margin-top: 8px;
+   font-family: "Sriracha";
+    
+  }

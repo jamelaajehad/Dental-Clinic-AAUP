@@ -58,14 +58,14 @@
   .profile-settings button {
     padding: 10px 15px; 
     border: none; 
-    border-radius: 16px; 
+    border-radius: 20px; 
     background-color: rgb(70, 131, 146)  ;  
     color: white; 
     font-size: 16px; 
     cursor: pointer; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
     font-family: "outfit";
-    width: 400px ;
+    width: 150px ;
     margin-right: 5px;
   }
   

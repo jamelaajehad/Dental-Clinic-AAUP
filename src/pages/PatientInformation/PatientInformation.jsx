@@ -664,7 +664,12 @@ const PatientInformation = () => {
   ];
 
   return (
-    <div>
+    <div >
+      <div className='image-patient'>
+       </div> 
+       <div className='Enter-id' > 
+       <p> Welcome, enter the patient’s ID number to view the patient’s information and then enter the treatment condition required for him</p>
+       </div>
       <ToastContainer />
       <div className="patient-information">
         {currentPage === 1 && (

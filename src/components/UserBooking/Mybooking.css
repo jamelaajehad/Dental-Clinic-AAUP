@@ -10,6 +10,7 @@
     height: auto;
     margin: 5px auto;
     margin-left: 1.5rem;
+    margin-top: 1.9rem;
   }
 
   
@@ -20,6 +21,11 @@
     font-family: "Montserrat", sans-serif ;
     font-style: italic;
   } 
+  .my-bookings-container h3 .booking-icons {
+    margin-right: 2px;
+    color: #48778afb;  /* لون الأيقونة */
+  }
+
   .bookings-list {
     display: flex;
     flex-direction: column;
@@ -28,7 +34,7 @@
   
   .booking-card1 {
     width: 450px; 
-    border: 1px ;
+    border: 1px solid rgb(200, 213, 221)  ;
     border-radius: 8px;
     padding: 15px;
     background-color: #fffffffb  ;
@@ -36,7 +42,7 @@
     font-family: "outfit";
     font-size: 17px;
     font-style: italic;
-    box-shadow:  0px 0px 15px 0px rgba(24, 24, 24, 0.1);
+    box-shadow:  4px 3px 10px 3px rgba(24, 24, 24, 0.1);
   }
   
   .booking-card p {
@@ -45,3 +51,7 @@
     font-style: italic;
   }
   
+  .booking-card1 p .booking-icons {
+    margin-right: 8px;
+    color: #48778afb ;
+  }

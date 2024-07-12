@@ -224,11 +224,36 @@
           margin-bottom: 5px;
         }
          */
+         .image-patient{
+          scroll-behavior: smooth;
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-attachment: fixed;
+          background-image: url('../../Asset/app-images/initialpic.jpg');
+          height:75vh;
+          display: flex;
+          width: 100%;
+         }
+         .Enter-id p {
+          font-family: "outfit";
+          font-style: italic; 
+          margin-top: 3rem;
+          margin-left: 4rem;
+          font-size: 22px;
+         }
+
          .patient-information {
           max-width: 800px;
-          margin: 6rem auto;
+          margin: 3rem auto;
           margin-bottom: 8rem;
           padding: 20px;
+        }
+        .patient-information p{
+         font-family: 'outfit'; 
+         font-style: italic; 
+         font-size: 19px;
+         text-align: left;
         }
         
         .form-container {

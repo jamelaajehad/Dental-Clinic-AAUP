@@ -18,6 +18,7 @@
     text-align: center;
     margin-bottom: 20px;
     color: white;
+    font-size: 30px;
   }
   
   .admin-sidebar ul {
@@ -28,17 +29,17 @@
   
   .admin-sidebar ul li {
     margin: 20px 0;
-    
     font-family: "outfit";
   }
   
   .admin-sidebar ul li button {
+    margin-top: 1.5rem;
     color: white;
     background: none;
     border: none;
     text-decoration: none;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 19px;
     width: 100%;
     text-align: left;
     padding: 10px;
@@ -63,6 +64,9 @@
   
   .admin-content p {
     margin-top: 20px;
+    font-family: "outfit";
+    font-style: italic;
+    font-size: 20px;
   }
   
   table {
@@ -91,10 +95,10 @@
   td .action-btn {
     margin-right: 10px;
     padding: 6px 12px;
-    background-color: rgb(67, 147, 167) ;
+    background-color: rgb(65, 134, 151) ;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 18px;
     cursor: pointer;
   }
   
@@ -173,3 +177,30 @@
     background-color: rgb(67, 147, 167) ;
   }
   
+  .toast-confirmation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .toast-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .toast-button {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .toast-button-yes {
+    background-color: #4CAF50; /* أخضر */
+    color: white;
+  }
+  
+  .toast-button-no {
+    background-color: #f44336; /* أحمر */
+    color: white;
+  }

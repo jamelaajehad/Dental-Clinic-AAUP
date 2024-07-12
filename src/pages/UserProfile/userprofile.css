@@ -1,9 +1,14 @@
+.back-colorProfile{
+  /* background-color: rgb(229, 235, 236); */
+  background-color: #fafafa  ;
+}
+
 .Userprofile {
     display: flex;
     flex-direction: column;
     padding: 20px;
     margin-bottom: 4rem;
-    background-color: rgb(255, 255, 255);
+    
   }
  /* .profileimage{
     background-image:  url('../../Asset/app-images/img-profile.png'); 
@@ -18,7 +23,6 @@
 } */ 
 .profileimage h1{
    align-items: center;
-   margin-top: 4rem;
    color: rgb(252, 252, 255)   ; 
    line-height:6rem ;
    margin-left: 35rem;

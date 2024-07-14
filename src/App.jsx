@@ -19,6 +19,7 @@ import PatientInformation from "./pages/PatientInformation/PatientInformation";
 import MyBooking from "./pages/MyBooking/mybooking";
 import DoctorInitial from "./pages/DoctorExaminationProfile/doctorExaminationProfile";
 import Messages from "./pages/Messages/Messages";
+import StaticDoctorProfile from "./pages/StaticDoctorProfile/StaticDoctorProfile";
 const App = () => {
   return (
     <UserProvider>
@@ -42,6 +43,8 @@ const App = () => {
           <Route path="/Services" element={<Services/>} />
           <Route path="/mybooking" element={<MyBooking />} />
           <Route path="/Messages" element={<Messages />} />
+          <Route path="/StaticDoctorProfile" element={<StaticDoctorProfile/>} />
+
         </Routes>
       </Router>
     </UserProvider>

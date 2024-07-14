@@ -1572,9 +1572,7 @@ const DoctorDashboard = () => {
               <h4 style={{ margin: '4px ', color: '#4393a7', fontFamily: 'outfit, sans-serif' }}>
                 {doctorName}
               </h4>
-              <p style={{ margin: '4px ', fontFamily: 'outfit, sans-serif', fontSize: '15px' }}>
-                {doctorPhone}
-              </p>
+             
             </div>
             <ul className="ulitemsex">
               <li onClick={() => handleActionClick('patients')}>

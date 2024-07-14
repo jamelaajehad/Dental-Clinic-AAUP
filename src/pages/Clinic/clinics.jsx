@@ -128,7 +128,7 @@ const Clinics = () => {
       description:
         'Offering expert care in replacing missing teeth and restoring dental function. ',
       photo:
-        'https://vipdentalclinic.com.au/wp-content/uploads/2023/09/prosthodontics-in-miranda.webp',
+        'https://makowski-zurek.pl/wp-content/uploads/2023/04/artificial-jaw-dentist-s-office_Easy-Resize.com_.jpg ',
     },
     {
       name: 'Periodontology Clinic ',

@@ -1140,7 +1140,9 @@ import { format, eachDayOfInterval, addDays, startOfToday } from "date-fns";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./mybooking.css";
-import { FaComment } from "react-icons/fa6";
+import { FaComment  } from "react-icons/fa6";
+import {FaClinicMedical,FaArrowRight } from "react-icons/fa";
+
 import { useNavigate } from "react-router-dom";
 
 const MyBooking = () => {
@@ -1446,8 +1448,71 @@ const MyBooking = () => {
 
   return (
     <div>
+      <div className="step-navigation">
+        <ul className="step-indicator">
+          <li className={step === 1 ? 'active' : ''}>1</li>
+          <li className={step === 2 ? 'active' : ''}>2</li>
+          <li className={step === 3 ? 'active' : ''}>3</li>
+          <li className={step === 4 ? 'active' : ''}>4</li>
+        </ul>
+      </div>
       <div className="my-booking-container">
-        {step === 1 && (
+      {step === 1 && (
+          <>
+            <div>
+              <h1
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                {' '}
+                <FaClinicMedical
+                  style={{
+                    fontSize: '40px',
+                    color: '#317481',
+                    marginRight: '10px',
+                  }}
+                />{' '}
+                Available Clinic{' '}
+              </h1>
+              {matchingClinic ? (
+                <div className="myclinic-card">
+                  <div className="myclinic-title">
+                    <h4>{matchingClinic.ClinicName}</h4>
+                    <p> Location: {matchingClinic.Location}</p>
+                  </div>
+
+                  <img
+                    src={matchingClinic.image}
+                    alt={matchingClinic.ClinicName}
+                    className="clinic-image"
+                  />
+
+                  <button
+                    className="myclinic-button"
+                    onClick={handleBookNowClick}
+                  >
+                    Book Now <FaArrowRight />
+                  </button>
+                </div>
+              ) : (
+                <p
+                  style={{
+                    color: '#848484',
+                    fontFamily: 'tajwal',
+                    fontSize: '20px',
+                  }}
+                >
+                  There is no clinic available, you must book an initial
+                  examination first.
+                </p>
+              )}
+            </div>
+          </>
+        )}
+        {/* {step === 1 && (
           <>
             <h3>Available Clinic:</h3>
             {matchingClinic ? (
@@ -1475,7 +1540,7 @@ const MyBooking = () => {
               </p>
             )}
           </>
-        )}
+        )} */}
         {step === 2 && (
           <div className="day-selection-container">
             <h4>Select Day</h4>

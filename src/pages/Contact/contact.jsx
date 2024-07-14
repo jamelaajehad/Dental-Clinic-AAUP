@@ -1,22 +1,22 @@
-import { useState } from 'react';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
-import './contact.css';
-import Footer from '../../components/Footer/footer';
+import { useState } from "react";
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaClock } from "react-icons/fa";
+import "./contact.css";
+import Footer from "../../components/Footer/footer";
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: '',
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
   });
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
   };
@@ -69,7 +69,7 @@ const Contact = () => {
             <h2 className="form-h2">How can we help ? Contact us now </h2>
             <h3 className="form-h3">Get In Touch With Us</h3>
             <p className="form-p">
-            "We look forward to hearing from you through our website. Leave
+              "We look forward to hearing from you through our website. Leave
               your message and we'll get back to you soon."
             </p>
             <form className="contact-us-form" onSubmit={handleSubmit}>

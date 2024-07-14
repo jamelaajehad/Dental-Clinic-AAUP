@@ -182,7 +182,7 @@ const NotificationPanel = ({ onClose }) => {
     <div className="notification-panel">
       <div className="panel-header">
         <h5>Notifications</h5>
-        <button className="close-button" onClick={onClose}>
+        <button className="close-buttonn" onClick={onClose}>
           &times;
         </button>
       </div>
@@ -240,4 +240,3 @@ const NotificationPanel = ({ onClose }) => {
 };
 
 export default NotificationPanel;
-

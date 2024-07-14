@@ -13,7 +13,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
   const [notifications, setNotifications] = useState([]);
-  const [userAvatar, setUserAvatar] = useState(defaultAvatar);
+  const [userAvatar, setUserAvatar] = useState("");
   const { user } = useUser();
   const navigate = useNavigate();
 

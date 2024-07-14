@@ -1,4 +1,3 @@
-
 import Navbar from "./components/Navbar/navbar";
 import Home from "./pages/home/home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -36,15 +35,17 @@ const App = () => {
           <Route path="/booking" element={<Booking />} />
           <Route path="/initialexamination" element={<Initial />} />
           <Route path="/user" element={<UserProfile />} />
-          <Route path="/admin/:activepage" element={<AdminPage />} />
-          <Route path="/DoctorDashboard" element={<DoctorDashboard />} /> 
-          <Route path="/doctorinitial" element={<DoctorInitial />} /> 
+          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/DoctorDashboard" element={<DoctorDashboard />} />
+          <Route path="/doctorinitial" element={<DoctorInitial />} />
           <Route path="/PatientInformation" element={<PatientInformation />} />
-          <Route path="/Services" element={<Services/>} />
+          <Route path="/Services" element={<Services />} />
           <Route path="/mybooking" element={<MyBooking />} />
           <Route path="/Messages" element={<Messages />} />
-          <Route path="/StaticDoctorProfile" element={<StaticDoctorProfile/>} />
-
+          <Route
+            path="/StaticDoctorProfile"
+            element={<StaticDoctorProfile />}
+          />
         </Routes>
       </Router>
     </UserProvider>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Footer from "../../components/Footer/Footer";
-import MyBookings from "../../components/UserBooking/MyBooking";
+import Footer from "../../components/Footer/footer";
+import MyBooking from "../MyBooking/mybooking";
 import ProfileSettings from "../../components/UserProfileSetting/ProfileSettings";
 import setting from "../../Asset/app-images/setting.png";
 import mybooking from "../../Asset/app-images/mybooking.png";
@@ -16,7 +16,7 @@ import "./userprofile.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const UserProfile = () => {
+const userprofile = () => {
   const [activeSection, setActiveSection] = useState("profile");
   const [profilePicture, setProfilePicture] = useState(profilePic);
   const [fullname, setFullname] = useState("");
@@ -189,7 +189,7 @@ const UserProfile = () => {
                 currentPhoneNumber={phoneNumber}
               />
             )}
-            {activeSection === "bookings" && <MyBookings />}
+            {activeSection === "bookings" && <MyBooking />}
           </div>
         </div>
       </div>
@@ -199,4 +199,4 @@ const UserProfile = () => {
   );
 };
 
-export default UserProfile;
+export default userprofile;

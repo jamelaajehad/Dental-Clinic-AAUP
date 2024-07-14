@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar/navbar";
 import Home from "./pages/home/home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -15,10 +16,10 @@ import Clinics from "./pages/Clinic/clinics";
 import { UserProvider } from "./contexts/UserContext";
 import Initial from "./pages/InitialExamination/initialexamination";
 import PatientInformation from "./pages/PatientInformation/PatientInformation";
-import MyBooking from "./pages/MyBooking/mybooking";
+import MyBooking from "./pages/MyBooking/MyBooking/mybooking";
 import DoctorInitial from "./pages/DoctorExaminationProfile/doctorExaminationProfile";
 import Messages from "./pages/Messages/Messages";
-import StaticDoctorProfile from "./pages/StaticDoctorProfile/StaticDoctorProfile";
+
 const App = () => {
   return (
     <UserProvider>
@@ -42,13 +43,10 @@ const App = () => {
           <Route path="/Services" element={<Services />} />
           <Route path="/mybooking" element={<MyBooking />} />
           <Route path="/Messages" element={<Messages />} />
-          <Route
-            path="/StaticDoctorProfile"
-            element={<StaticDoctorProfile />}
-          />
         </Routes>
       </Router>
     </UserProvider>
   );
 };
+
 export default App;

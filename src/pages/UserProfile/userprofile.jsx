@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Footer from "../../components/Footer/footer";
-import MyBooking from "../MyBooking/mybooking";
+import MyBooking from "../MyBooking/MyBooking/mybooking";
 import ProfileSettings from "../../components/UserProfileSetting/ProfileSettings";
 import setting from "../../Asset/app-images/setting.png";
 import mybooking from "../../Asset/app-images/mybooking.png";

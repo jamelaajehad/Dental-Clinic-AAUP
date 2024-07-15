@@ -34,7 +34,8 @@ import {
 } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import { parse } from "date-fns";
-import { format } from "date-fns";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { storage } from "../../firebase";
 import Modal from "react-modal";
 
 Modal.setAppElement("#root");
@@ -51,6 +52,7 @@ const DoctorDashboard = () => {
   const [patientData, setPatientData] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedPatient, setSelectedPatient] = useState(null);
+  const [profilePictureFile, setProfilePictureFile] = useState(null);
 
   useEffect(() => {
     const fetchDoctorData = async () => {
@@ -113,7 +115,9 @@ const DoctorDashboard = () => {
 
   const handleProfilePictureChange = (event) => {
     if (event.target.files && event.target.files[0]) {
-      setProfilePicture(URL.createObjectURL(event.target.files[0]));
+      const file = event.target.files[0];
+      setProfilePicture(URL.createObjectURL(file));
+      setProfilePictureFile(file); // Set the file to state
     }
   };
 
@@ -128,11 +132,19 @@ const DoctorDashboard = () => {
       const name = event.target.elements.doctorName.value;
       const phone = event.target.elements.doctorPhone.value;
 
+      let profilePictureURL = profilePicture;
+
+      if (profilePictureFile) {
+        const storageRef = ref(storage, `profile_pictures/${user.uid}`);
+        await uploadBytes(storageRef, profilePictureFile);
+        profilePictureURL = await getDownloadURL(storageRef);
+      }
+
       const doctorDocRef = doc(firestore, "Doctors", user.uid);
       await updateDoc(doctorDocRef, {
         fullname: name,
         phone: phone,
-        image: profilePicture,
+        image: profilePictureURL,
       });
 
       setDoctorName(name);
@@ -349,10 +361,6 @@ const DoctorDashboard = () => {
                                       {patient.day} | {patient.time}
                                     </p>
                                   </div>
-                                </div>
-                                <div className="patient-time3">
-                                  <button className="edit-button">Edit</button>
-                                  <button>Delete</button>
                                 </div>
                                 <button
                                   onClick={() => openModal(patient.userId)}

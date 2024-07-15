@@ -7,7 +7,7 @@ import manage from "../../Asset/app-images/manage.png";
 import { signOut } from "firebase/auth";
 import { useUser } from "../../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
-import { auth, firestore } from "../../firebase";
+import { auth, firestore, storage } from "../../firebase"; // Added storage import
 import {
   collection,
   query,
@@ -17,6 +17,7 @@ import {
   updateDoc,
   deleteDoc,
 } from "firebase/firestore";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage"; // Added storage functions
 import "react-day-picker/dist/style.css";
 import Footer from "../../components/Footer/footer";
 
@@ -42,6 +43,7 @@ Modal.setAppElement("#root");
 const DoctorDashboard = () => {
   const [selectedAction, setSelectedAction] = useState("patients");
   const [profilePicture, setProfilePicture] = useState(null);
+  const [profilePictureFile, setProfilePictureFile] = useState(null); // New state for file
   const [doctorName, setDoctorName] = useState("");
   const [doctorEmail, setDoctorEmail] = useState("");
   const [doctorPhone, setDoctorPhone] = useState("");
@@ -116,7 +118,9 @@ const DoctorDashboard = () => {
 
   const handleProfilePictureChange = (event) => {
     if (event.target.files && event.target.files[0]) {
-      setProfilePicture(URL.createObjectURL(event.target.files[0]));
+      const file = event.target.files[0];
+      setProfilePicture(URL.createObjectURL(file));
+      setProfilePictureFile(file); // Set the file to state
     }
   };
 
@@ -136,12 +140,19 @@ const DoctorDashboard = () => {
         ? form.elements.doctorPhone.value
         : "";
 
-      // Make sure you have removed any reference to `doctorPassword` if the field was deleted
+      let profilePictureURL = profilePicture;
+
+      if (profilePictureFile) {
+        const storageRef = ref(storage, `profile_pictures/${user.uid}`);
+        await uploadBytes(storageRef, profilePictureFile);
+        profilePictureURL = await getDownloadURL(storageRef);
+      }
+
       const doctorDocRef = doc(firestore, "Doctors", user.uid);
       await updateDoc(doctorDocRef, {
         fullname: name,
         phone: phone,
-        image: profilePicture,
+        image: profilePictureURL,
       });
 
       toast.success("Profile updated successfully!");
@@ -179,7 +190,7 @@ const DoctorDashboard = () => {
       setUser(null);
       navigate("/");
     } catch (error) {
-      console.error("Error logging out: ", error);
+      console.error("Error logging out:", error);
     }
   };
 
@@ -361,32 +372,26 @@ const DoctorDashboard = () => {
                                         fontSize: "19px",
                                         fontWeight: "500",
                                         marginBottom: "0px",
-                                        fontFamily: "Tajawal, sans-serif",
+                                        fontFamily: "Sriracha",
                                       }}
                                     >
                                       {patient.patientName}
                                     </p>
-                                    <p style={{ marginTop: "revert" }}>
+                                    <p style={{ marginTop: "10px" }}>
                                       Type: {patient.patientType}
                                     </p>
-                                    <p style={{ marginTop: "revert" }}>
+                                    <p>
                                       {patient.day} | {patient.time}
                                     </p>
                                   </div>
                                 </div>
-                                <div className="patient-timeex">
-                                  <button className="edit-buttonex">
-                                    Edit
-                                  </button>
-                                  <button>Delete</button>
-                                </div>
+
                                 <button
                                   onClick={() => openModal(patient.userId)}
                                   style={{
                                     border: "none",
                                     borderRadius: "10px",
                                     padding: "0px",
-                                    backgroundColor: "white",
                                     color: "#4393a7",
                                     fontWeight: "500",
                                     display: "flex",

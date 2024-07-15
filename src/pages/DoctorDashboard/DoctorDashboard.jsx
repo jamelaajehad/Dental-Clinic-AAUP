@@ -74,7 +74,6 @@ const DoctorDashboard = () => {
         setDoctorName(doctorData.fullname);
         setProfilePicture(doctorData.image);
         setDoctorPhone(doctorData.phoneNumber);
-        setDoctorPassword(doctorData.password);
 
         const today = new Date().setHours(0, 0, 0, 0); // Get today's date at midnight
         const appointmentsQuery = query(
@@ -184,7 +183,7 @@ const DoctorDashboard = () => {
       setUser(null);
       navigate("/");
     } catch (error) {
-      console.error("Error logging out: ", error);
+      console.error("Error logging out:", error);
     }
   };
 

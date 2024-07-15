@@ -131,7 +131,7 @@ const DoctorCarousel = () => {
                 <img
                   src={doctor.image}
                   alt={doctor.name}
-                  style={{ width: "95%", height: "300px" }}
+                  style={{ width: "95%", height: "300px", objectFit: "cover" }}
                 />
               </div>
               <div className="doctor-info">

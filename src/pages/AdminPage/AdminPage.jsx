@@ -241,6 +241,36 @@ const Feedback = () => {
     fetchFeedbacks();
   }, []);
 
+  const handleDelete = async (id) => {
+    toast(
+      <div className="toast-confirmation">
+        Are you sure you want to delete this feedback?
+        <div className="toast-buttons">
+          <button
+            className="toast-button toast-button-yes"
+            onClick={async () => {
+              await deleteDoc(doc(firestore, "Feedback", id));
+              setFeedbacks(feedbacks.filter((feedback) => feedback.id !== id));
+              toast.dismiss();
+              toast.success("Feedback deleted successfully");
+            }}
+          >
+            Yes
+          </button>
+          <button
+            className="toast-button toast-button-no"
+            onClick={() => toast.dismiss()}
+          >
+            No
+          </button>
+        </div>
+      </div>,
+      {
+        autoClose: false,
+      }
+    );
+  };
+
   const handleEdit = (id) => {
     // Logic for editing feedback
     console.log("Edit feedback with id:", id);
@@ -249,26 +279,29 @@ const Feedback = () => {
   return (
     <div>
       <h2>Manage Feedback</h2>
-      <p>Here you can add, edit, or delete feedback.</p>
+      <p>Here you can view, edit, or delete feedback.</p>
       <div className="feedback-list">
         <table>
           <thead>
             <tr>
-              <th>Feedback</th>
-              <th>Actions</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Subject</th>
+              <th>Message</th>
+              <th>Timestamp</th>
             </tr>
           </thead>
           <tbody>
             {feedbacks.map((feedback) => (
               <tr key={feedback.id}>
-                <td>{feedback.content}</td>
+                <td>{feedback.name}</td>
+                <td>{feedback.email}</td>
+                <td>{feedback.phone}</td>
+                <td>{feedback.subject}</td>
+                <td>{feedback.message}</td>
                 <td>
-                  <button
-                    className="action-btn"
-                    onClick={() => handleEdit(feedback.id)}
-                  >
-                    Edit
-                  </button>
+                  {new Date(feedback.timestamp?.toDate()).toLocaleString()}
                 </td>
               </tr>
             ))}

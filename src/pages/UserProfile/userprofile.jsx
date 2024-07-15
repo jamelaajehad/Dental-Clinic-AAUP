@@ -5,7 +5,7 @@ import ProfileSettings from "../../components/UserProfileSetting/ProfileSettings
 import setting from "../../Asset/app-images/setting.png";
 import mybooking from "../../Asset/app-images/mybooking.png";
 import logout from "../../Asset/app-images/logout.png";
-import profilePic from "../../Asset/app-images/profilePic.png";
+import profilePic from "../../Asset/app-images/default.webp";
 import { useUser } from "../../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 import { auth, firestore, storage } from "../../firebase";

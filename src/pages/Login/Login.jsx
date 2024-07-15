@@ -3,7 +3,8 @@ import "./Login.css";
 import { FaUser, FaLock, FaEnvelope } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase";
+import { auth, firestore } from "../../firebase";
+import { doc, getDoc } from "firebase/firestore";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -22,16 +23,39 @@ const LoginForm = () => {
       );
       const user = userCredential.user;
 
-      // Assuming user object contains userType property
-      const userType = user.userType || "default"; // Set default value if userType is undefined
+      let userType = "default";
+
+      // Fetch user type from Firestore
+      const doctorDoc = await getDoc(doc(firestore, "Doctors", user.uid));
+      if (doctorDoc.exists()) {
+        userType = "doctor";
+      } else {
+        const patientDoc = await getDoc(doc(firestore, "Patients", user.uid));
+        if (patientDoc.exists()) {
+          userType = "patient";
+        } else {
+          const managerDoc = await getDoc(doc(firestore, "Maneger", user.uid));
+          if (managerDoc.exists()) {
+            userType = "admin";
+          }
+        }
+      }
 
       // Store user info and userType in localStorage
-      localStorage.setItem("user", JSON.stringify(user));
-      localStorage.setItem("userType", userType);
+      const storedUser = {
+        uid: user.uid,
+        email: user.email,
+        userType: userType,
+      };
+      localStorage.setItem("user", JSON.stringify(storedUser));
 
       toast.success("Login successful!");
       setTimeout(() => {
-        navigate("/");
+        if (userType === "admin") {
+          navigate("/admin");
+        } else {
+          navigate("/");
+        }
       }, 2000);
     } catch (error) {
       toast.error("Incorrect email or password.");

@@ -2,6 +2,11 @@ import { useState } from "react";
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaClock } from "react-icons/fa";
 import "./contact.css";
 import Footer from "../../components/Footer/footer";
+import { firestore } from "../../firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -16,13 +21,30 @@ const Contact = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    try {
+      await addDoc(collection(firestore, "Feedback"), {
+        ...formData,
+        timestamp: serverTimestamp(),
+      });
+      toast.success("Feedback sent successfully!");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+    } catch (e) {
+      console.error("Error adding document: ", e);
+      toast.error("Failed to send feedback. Please try again.");
+    }
   };
 
   return (
     <div className="contact-us">
+      <ToastContainer />
       <div className="animated-background"></div>
       <main>
         <h1 className="contact-us-h1">Contact Us</h1>
@@ -106,7 +128,7 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  placeholder="Subject"
+                  placeholder="Address"
                 />
               </div>
               <textarea
